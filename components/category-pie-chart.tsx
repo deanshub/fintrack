@@ -15,14 +15,6 @@ interface CategorySpend {
   categories: Category[];
 }
 
-const COLORS = [
-  "var(--chart-1)",
-  "var(--chart-2)",
-  "var(--chart-3)",
-  "var(--chart-4)",
-  "var(--chart-5)",
-];
-
 export function CategoryPieChart({ data }: { data: CategorySpend }) {
   const entries = Object.entries(data.byCategory)
     .filter(([id]) => id !== "uncategorized")
@@ -64,7 +56,17 @@ export function CategoryPieChart({ data }: { data: CategorySpend }) {
           <PieChart accessibilityLayer>
             <ChartTooltip
               content={
-                <ChartTooltipContent formatter={(value) => `₪${Number(value).toLocaleString()}`} />
+                <ChartTooltipContent
+                  nameKey="name"
+                  formatter={(value, name) => (
+                    <div className="flex flex-1 items-center justify-between gap-4">
+                      <span className="text-muted-foreground">{name}</span>
+                      <span className="font-mono font-medium tabular-nums">
+                        ₪{Number(value).toLocaleString()}
+                      </span>
+                    </div>
+                  )}
+                />
               }
             />
             <Pie
@@ -75,18 +77,18 @@ export function CategoryPieChart({ data }: { data: CategorySpend }) {
               outerRadius="75%"
               paddingAngle={2}
             >
-              {entries.map((entry, i) => (
-                <Cell key={entry.name} fill={COLORS[i % COLORS.length]} />
+              {entries.map((entry) => (
+                <Cell key={entry.name} fill={entry.color} />
               ))}
             </Pie>
           </PieChart>
         </ChartContainer>
         <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs">
-          {entries.map((entry, i) => (
+          {entries.map((entry) => (
             <div key={entry.name} className="flex items-center gap-1.5">
               <span
                 className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: COLORS[i % COLORS.length] }}
+                style={{ backgroundColor: entry.color }}
               />
               <span className="text-muted-foreground">{entry.name}</span>
             </div>

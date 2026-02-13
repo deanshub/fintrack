@@ -18,7 +18,8 @@ export async function GET(request: NextRequest) {
   }
 
   if (category) {
-    transactions = transactions.filter((t) => t.categoryId === category);
+    const cats = category.split(",");
+    transactions = transactions.filter((t) => cats.includes(t.categoryId ?? ""));
   }
 
   transactions.sort((a, b) => b.date.localeCompare(a.date));

@@ -5,18 +5,42 @@
     "icon": "Wallet",
     "color": "var(--chart-1)",
     "rules": [
-      { "keyword": "משכורת" },
-      { "keyword": "salary" },
-      { "keyword": "העברה נכנסת" },
-      { "keyword": "freelance" },
-      { "keyword": "קצבת" },
-      { "keyword": "מילואים" },
-      { "keyword": "דיבידנד" },
-      { "keyword": "מענק" },
-      { "keyword": "וייבר לאב" },
-      { "keyword": "הפקדה" },
-      { "keyword": "הפק.שיק" },
-      { "keyword": "העברה-נייד" }
+      {
+        "keyword": "משכורת"
+      },
+      {
+        "keyword": "salary"
+      },
+      {
+        "keyword": "העברה נכנסת"
+      },
+      {
+        "keyword": "freelance"
+      },
+      {
+        "keyword": "קצבת"
+      },
+      {
+        "keyword": "מילואים"
+      },
+      {
+        "keyword": "דיבידנד"
+      },
+      {
+        "keyword": "מענק"
+      },
+      {
+        "keyword": "וייבר לאב"
+      },
+      {
+        "keyword": "הפקדה"
+      },
+      {
+        "keyword": "הפק.שיק"
+      },
+      {
+        "keyword": "העברה-נייד"
+      }
     ]
   },
   {
@@ -25,18 +49,42 @@
     "icon": "ShoppingCart",
     "color": "var(--chart-2)",
     "rules": [
-      { "keyword": "שופרסל" },
-      { "keyword": "רמי לוי" },
-      { "keyword": "מגא" },
-      { "keyword": "יוחננוף" },
-      { "keyword": "ויקטורי" },
-      { "keyword": "טיב טעם" },
-      { "keyword": "שוקומט" },
-      { "keyword": "carrefour" },
-      { "keyword": "מכולת/סופר" },
-      { "keyword": "מינימרקט" },
-      { "keyword": "דרגסטור פוד" },
-      { "keyword": "סופר נח" }
+      {
+        "keyword": "שופרסל"
+      },
+      {
+        "keyword": "רמי לוי"
+      },
+      {
+        "keyword": "מגא"
+      },
+      {
+        "keyword": "יוחננוף"
+      },
+      {
+        "keyword": "ויקטורי"
+      },
+      {
+        "keyword": "טיב טעם"
+      },
+      {
+        "keyword": "שוקומט"
+      },
+      {
+        "keyword": "carrefour"
+      },
+      {
+        "keyword": "מכולת/סופר"
+      },
+      {
+        "keyword": "מינימרקט"
+      },
+      {
+        "keyword": "דרגסטור פוד"
+      },
+      {
+        "keyword": "סופר נח"
+      }
     ]
   },
   {
@@ -45,22 +93,54 @@
     "icon": "UtensilsCrossed",
     "color": "var(--chart-3)",
     "rules": [
-      { "keyword": "wolt" },
-      { "keyword": "מסעדות" },
-      { "keyword": "מסעדה" },
-      { "keyword": "קפה" },
-      { "keyword": "בית קפה" },
-      { "keyword": "פיצה" },
-      { "keyword": "פיצריה" },
-      { "keyword": "שווארמה" },
-      { "keyword": "גולדה" },
-      { "keyword": "מעדניות" },
-      { "keyword": "בייקרי" },
-      { "keyword": "קונדיטורית" },
-      { "keyword": "טאבון" },
-      { "keyword": "בורגר" },
-      { "keyword": "נקניק" },
-      { "keyword": "תן ביס" }
+      {
+        "keyword": "wolt"
+      },
+      {
+        "keyword": "מסעדות"
+      },
+      {
+        "keyword": "מסעדה"
+      },
+      {
+        "keyword": "קפה"
+      },
+      {
+        "keyword": "בית קפה"
+      },
+      {
+        "keyword": "פיצה"
+      },
+      {
+        "keyword": "פיצריה"
+      },
+      {
+        "keyword": "שווארמה"
+      },
+      {
+        "keyword": "גולדה"
+      },
+      {
+        "keyword": "מעדניות"
+      },
+      {
+        "keyword": "בייקרי"
+      },
+      {
+        "keyword": "קונדיטורית"
+      },
+      {
+        "keyword": "טאבון"
+      },
+      {
+        "keyword": "בורגר"
+      },
+      {
+        "keyword": "נקניק"
+      },
+      {
+        "keyword": "תן ביס"
+      }
     ]
   },
   {
@@ -69,19 +149,45 @@
     "icon": "Car",
     "color": "var(--chart-4)",
     "rules": [
-      { "keyword": "דלק" },
-      { "keyword": "סונול" },
-      { "keyword": "פז" },
-      { "keyword": "uber" },
-      { "keyword": "gett" },
-      { "keyword": "רב-קו" },
-      { "keyword": "פנגו" },
-      { "keyword": "חניון" },
-      { "keyword": "חניוני" },
-      { "keyword": "שירותי רכב" },
-      { "keyword": "נאייקס" },
-      { "keyword": "אגרה" },
-      { "keyword": "התחבורה" }
+      {
+        "keyword": "דלק"
+      },
+      {
+        "keyword": "סונול"
+      },
+      {
+        "keyword": "פז"
+      },
+      {
+        "keyword": "uber"
+      },
+      {
+        "keyword": "gett"
+      },
+      {
+        "keyword": "רב-קו"
+      },
+      {
+        "keyword": "פנגו"
+      },
+      {
+        "keyword": "חניון"
+      },
+      {
+        "keyword": "חניוני"
+      },
+      {
+        "keyword": "שירותי רכב"
+      },
+      {
+        "keyword": "נאייקס"
+      },
+      {
+        "keyword": "אגרה"
+      },
+      {
+        "keyword": "התחבורה"
+      }
     ]
   },
   {
@@ -90,105 +196,207 @@
     "icon": "Home",
     "color": "var(--chart-5)",
     "rules": [
-      { "keyword": "שכירות" },
-      { "keyword": "rent" },
-      { "keyword": "ועד בית" },
-      { "keyword": "משכנתא" }
+      {
+        "keyword": "שכירות"
+      },
+      {
+        "keyword": "rent"
+      },
+      {
+        "keyword": "ועד בית"
+      },
+      {
+        "keyword": "משכנתא"
+      }
     ]
   },
   {
     "id": "utilities",
     "name": "Utilities",
     "icon": "Zap",
-    "color": "var(--chart-1)",
+    "color": "var(--chart-6)",
     "rules": [
-      { "keyword": "חשמל" },
-      { "keyword": "מים" },
-      { "keyword": "מי ציונה" },
-      { "keyword": "ארנונה" },
-      { "keyword": "עירית" },
-      { "keyword": "גז" },
-      { "keyword": "אינטרנט" },
-      { "keyword": "פרטנר" },
-      { "keyword": "סלקום" }
+      {
+        "keyword": "חשמל"
+      },
+      {
+        "keyword": "מים"
+      },
+      {
+        "keyword": "מי ציונה"
+      },
+      {
+        "keyword": "ארנונה"
+      },
+      {
+        "keyword": "עירית"
+      },
+      {
+        "keyword": "גז"
+      },
+      {
+        "keyword": "אינטרנט"
+      },
+      {
+        "keyword": "פרטנר"
+      },
+      {
+        "keyword": "סלקום"
+      }
     ]
   },
   {
     "id": "insurance",
     "name": "Insurance",
     "icon": "Shield",
-    "color": "var(--chart-2)",
+    "color": "var(--chart-7)",
     "rules": [
-      { "keyword": "ביטוח" },
-      { "keyword": "ליברה" },
-      { "keyword": "מנורה" },
-      { "keyword": "מגדל חיים" }
+      {
+        "keyword": "ביטוח"
+      },
+      {
+        "keyword": "ליברה"
+      },
+      {
+        "keyword": "מנורה"
+      },
+      {
+        "keyword": "מגדל חיים"
+      }
     ]
   },
   {
     "id": "entertainment",
     "name": "Entertainment",
     "icon": "Clapperboard",
-    "color": "var(--chart-2)",
+    "color": "var(--chart-8)",
     "rules": [
-      { "keyword": "סינמה" },
-      { "keyword": "yes planet" },
-      { "keyword": "הופעה" },
-      { "keyword": "מובילנד" },
-      { "keyword": "תרבות" },
-      { "keyword": "ביר גארדן" }
+      {
+        "keyword": "סינמה"
+      },
+      {
+        "keyword": "yes planet"
+      },
+      {
+        "keyword": "הופעה"
+      },
+      {
+        "keyword": "מובילנד"
+      },
+      {
+        "keyword": "תרבות"
+      },
+      {
+        "keyword": "ביר גארדן"
+      }
     ]
   },
   {
     "id": "shopping",
     "name": "Shopping",
     "icon": "ShoppingBag",
-    "color": "var(--chart-3)",
+    "color": "var(--chart-9)",
     "rules": [
-      { "keyword": "אמזון" },
-      { "keyword": "amazon" },
-      { "keyword": "aliexpress" },
-      { "keyword": "zara" },
-      { "keyword": "h&m" },
-      { "keyword": "קניון" },
-      { "keyword": "ביגוד" },
-      { "keyword": "הלבשה" },
-      { "keyword": "אפנה" },
-      { "keyword": "אופיס דיפו" },
-      { "keyword": "צעצועים" },
-      { "keyword": "כלי בית" },
-      { "keyword": "iherb" }
+      {
+        "keyword": "אמזון"
+      },
+      {
+        "keyword": "amazon"
+      },
+      {
+        "keyword": "aliexpress"
+      },
+      {
+        "keyword": "zara"
+      },
+      {
+        "keyword": "h&m"
+      },
+      {
+        "keyword": "קניון"
+      },
+      {
+        "keyword": "ביגוד"
+      },
+      {
+        "keyword": "הלבשה"
+      },
+      {
+        "keyword": "אפנה"
+      },
+      {
+        "keyword": "אופיס דיפו"
+      },
+      {
+        "keyword": "צעצועים"
+      },
+      {
+        "keyword": "כלי בית"
+      },
+      {
+        "keyword": "iherb"
+      }
     ]
   },
   {
     "id": "health",
     "name": "Health",
     "icon": "Heart",
-    "color": "var(--chart-4)",
+    "color": "var(--chart-10)",
     "rules": [
-      { "keyword": "מכבי" },
-      { "keyword": "כללית" },
-      { "keyword": "בית מרקחת" },
-      { "keyword": "רופא" },
-      { "keyword": "gym" },
-      { "keyword": "חדר כושר" },
-      { "keyword": "סופר פארם" },
-      { "keyword": "פארמה" },
-      { "keyword": "שרות רפואי" },
-      { "keyword": "דוקטור" },
-      { "keyword": "בריאות" }
+      {
+        "keyword": "מכבי"
+      },
+      {
+        "keyword": "כללית"
+      },
+      {
+        "keyword": "בית מרקחת"
+      },
+      {
+        "keyword": "רופא"
+      },
+      {
+        "keyword": "gym"
+      },
+      {
+        "keyword": "חדר כושר"
+      },
+      {
+        "keyword": "סופר פארם"
+      },
+      {
+        "keyword": "פארמה"
+      },
+      {
+        "keyword": "שרות רפואי"
+      },
+      {
+        "keyword": "דוקטור"
+      },
+      {
+        "keyword": "בריאות"
+      }
     ]
   },
   {
     "id": "subscriptions",
     "name": "Subscriptions",
     "icon": "RefreshCw",
-    "color": "var(--chart-5)",
+    "color": "var(--chart-11)",
     "rules": [
-      { "keyword": "netflix" },
-      { "keyword": "spotify" },
-      { "keyword": "apple" },
-      { "keyword": "google storage" }
+      {
+        "keyword": "netflix"
+      },
+      {
+        "keyword": "spotify"
+      },
+      {
+        "keyword": "apple"
+      },
+      {
+        "keyword": "google storage"
+      }
     ]
   },
   {
@@ -196,7 +404,11 @@
     "name": "Ignore",
     "icon": "EyeOff",
     "color": "var(--muted-foreground)",
-    "rules": [{ "keyword": "ישראכרט בע\"מ" }]
+    "rules": [
+      {
+        "keyword": "ישראכרט בע\"מ"
+      }
+    ]
   },
   {
     "id": "other",

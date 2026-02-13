@@ -1,23 +1,53 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useCallback, useState } from "react";
 import useSWR from "swr";
 import { MonthSelector } from "@/components/month-selector";
 import { TransactionEditSheet } from "@/components/transaction-edit-sheet";
 import { TransactionTable } from "@/components/transaction-table";
-import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { Input } from "@/components/ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useMonthParam } from "@/hooks/use-month-param";
 import type { Category, Transaction } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
-const ALL_CATEGORIES = "__all__";
+function useCategoryParams(): [string[], (categories: string[]) => void] {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const raw = searchParams.get("category");
+  const categories = raw ? raw.split(",") : [];
+
+  const setCategories = useCallback(
+    (next: string[]) => {
+      const params = new URLSearchParams(searchParams);
+      if (next.length === 0) {
+        params.delete("category");
+      } else {
+        params.set("category", next.join(","));
+      }
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    },
+    [searchParams, router, pathname],
+  );
+
+  return [categories, setCategories];
+}
 
 function TransactionsContent({
   month,
@@ -25,10 +55,10 @@ function TransactionsContent({
   search,
 }: {
   month: string;
-  categoryFilter: string;
+  categoryFilter: string[];
   search: string;
 }) {
-  const catParam = categoryFilter !== ALL_CATEGORIES ? `&category=${categoryFilter}` : "";
+  const catParam = categoryFilter.length > 0 ? `&category=${categoryFilter.join(",")}` : "";
   const { data: transactions } = useSWR<Transaction[]>(
     `/api/transactions?month=${month}${catParam}`,
   );
@@ -55,7 +85,7 @@ function TransactionsContent({
 
 export default function TransactionsPage() {
   const [month, setMonth] = useMonthParam();
-  const [categoryFilter, setCategoryFilter] = useState(ALL_CATEGORIES);
+  const [categoryFilter, setCategoryFilter] = useCategoryParams();
   const [search, setSearch] = useState("");
 
   return (
@@ -66,7 +96,7 @@ export default function TransactionsPage() {
       </div>
       <div className="flex flex-wrap gap-4">
         <Suspense fallback={<Skeleton className="h-10 w-40" />}>
-          <CategoryFilter value={categoryFilter} onChange={setCategoryFilter} />
+          <CategoryMultiFilter selected={categoryFilter} onChange={setCategoryFilter} />
         </Suspense>
         <Input
           placeholder="Search descriptions..."
@@ -82,23 +112,71 @@ export default function TransactionsPage() {
   );
 }
 
-function CategoryFilter({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+function CategoryMultiFilter({
+  selected,
+  onChange,
+}: {
+  selected: string[];
+  onChange: (ids: string[]) => void;
+}) {
   const { data: categories } = useSWR<Category[]>("/api/categories");
+  const [open, setOpen] = useState(false);
+
   if (!categories) return null;
 
+  function toggle(id: string) {
+    if (selected.includes(id)) {
+      onChange(selected.filter((s) => s !== id));
+    } else {
+      onChange([...selected, id]);
+    }
+  }
+
+  const selectedNames = selected
+    .map((id) => categories.find((c) => c.id === id)?.name)
+    .filter(Boolean);
+
   return (
-    <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="All Categories" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value={ALL_CATEGORIES}>All Categories</SelectItem>
-        {categories.map((cat) => (
-          <SelectItem key={cat.id} value={cat.id}>
-            {cat.name}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button variant="outline" className="w-[220px] justify-between">
+          {selected.length === 0 ? (
+            <span className="text-muted-foreground">All Categories</span>
+          ) : selected.length <= 2 ? (
+            <span className="flex gap-1 truncate">
+              {selectedNames.map((name) => (
+                <Badge key={name} variant="secondary" className="text-xs">
+                  {name}
+                </Badge>
+              ))}
+            </span>
+          ) : (
+            <span>{selected.length} categories</span>
+          )}
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[220px] p-0" align="start">
+        <Command>
+          <CommandInput placeholder="Search categories..." />
+          <CommandList>
+            <CommandEmpty>No categories found.</CommandEmpty>
+            <CommandGroup>
+              {categories.map((cat) => (
+                <CommandItem key={cat.id} value={cat.name} onSelect={() => toggle(cat.id)}>
+                  <Check
+                    className={cn(
+                      "mr-2 h-4 w-4",
+                      selected.includes(cat.id) ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+                  {cat.name}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
   );
 }

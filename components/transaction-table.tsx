@@ -1,6 +1,9 @@
 "use client";
 
+import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -12,6 +15,9 @@ import {
 import { formatCurrency, formatDate } from "@/lib/format";
 import type { Category, Transaction } from "@/lib/types";
 
+type SortKey = "date" | "description" | "category" | "amount";
+type SortDir = "asc" | "desc";
+
 interface TransactionTableProps {
   transactions: Transaction[];
   categories: Category[];
@@ -19,28 +25,87 @@ interface TransactionTableProps {
 }
 
 export function TransactionTable({ transactions, categories, onRowClick }: TransactionTableProps) {
-  const catMap = new Map(categories.map((c) => [c.id, c]));
+  const catMap = useMemo(() => new Map(categories.map((c) => [c.id, c])), [categories]);
+  const [sortKey, setSortKey] = useState<SortKey>("date");
+  const [sortDir, setSortDir] = useState<SortDir>("desc");
+
+  function handleSort(key: SortKey) {
+    if (sortKey === key) {
+      setSortDir(sortDir === "asc" ? "desc" : "asc");
+    } else {
+      setSortKey(key);
+      setSortDir(key === "amount" ? "desc" : "asc");
+    }
+  }
+
+  const sorted = useMemo(() => {
+    const copy = [...transactions];
+    const dir = sortDir === "asc" ? 1 : -1;
+    copy.sort((a, b) => {
+      switch (sortKey) {
+        case "date":
+          return dir * a.date.localeCompare(b.date);
+        case "description":
+          return dir * a.description.localeCompare(b.description);
+        case "category": {
+          const catA = (a.categoryId ? catMap.get(a.categoryId)?.name : "") ?? "";
+          const catB = (b.categoryId ? catMap.get(b.categoryId)?.name : "") ?? "";
+          return dir * catA.localeCompare(catB);
+        }
+        case "amount":
+          return dir * (a.amount - b.amount);
+        default:
+          return 0;
+      }
+    });
+    return copy;
+  }, [transactions, sortKey, sortDir, catMap]);
+
+  function SortIcon({ column }: { column: SortKey }) {
+    if (sortKey !== column) return <ArrowUpDown className="h-3.5 w-3.5" />;
+    return sortDir === "asc" ? (
+      <ArrowUp className="h-3.5 w-3.5" />
+    ) : (
+      <ArrowDown className="h-3.5 w-3.5" />
+    );
+  }
 
   return (
     <div className="rounded-md border">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Date</TableHead>
-            <TableHead>Description</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
+            {(
+              [
+                { key: "date", label: "Date", align: "" },
+                { key: "description", label: "Description", align: "" },
+                { key: "category", label: "Category", align: "" },
+                { key: "amount", label: "Amount", align: "text-right" },
+              ] as const
+            ).map((col) => (
+              <TableHead key={col.key} className={col.align}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="-ml-3 h-8"
+                  onClick={() => handleSort(col.key)}
+                >
+                  {col.label}
+                  <SortIcon column={col.key} />
+                </Button>
+              </TableHead>
+            ))}
           </TableRow>
         </TableHeader>
         <TableBody>
-          {transactions.length === 0 ? (
+          {sorted.length === 0 ? (
             <TableRow>
               <TableCell colSpan={4} className="h-24 text-center text-muted-foreground">
                 No transactions
               </TableCell>
             </TableRow>
           ) : (
-            transactions.map((tx) => {
+            sorted.map((tx) => {
               const cat = tx.categoryId ? catMap.get(tx.categoryId) : null;
               return (
                 <TableRow
@@ -52,7 +117,20 @@ export function TransactionTable({ transactions, categories, onRowClick }: Trans
                   <TableCell>{tx.description}</TableCell>
                   <TableCell>
                     {cat ? (
-                      <Badge variant="secondary">{cat.name}</Badge>
+                      <Badge
+                        variant="outline"
+                        className="gap-1.5"
+                        style={{
+                          borderColor: cat.color,
+                          color: cat.color,
+                        }}
+                      >
+                        <span
+                          className="inline-block h-2 w-2 rounded-full"
+                          style={{ backgroundColor: cat.color }}
+                        />
+                        {cat.name}
+                      </Badge>
                     ) : (
                       <span className="text-muted-foreground text-sm">—</span>
                     )}
