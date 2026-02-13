@@ -4,11 +4,13 @@ WORKDIR /app
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
-# Stage 2: Build
-FROM oven/bun:1 AS build
+# Stage 2: Build (Node.js base with Bun — Next.js needs Node for page data collection)
+FROM node:22-alpine AS build
+RUN npm install -g bun
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN bun run build
 
 # Stage 3: Production
