@@ -196,9 +196,7 @@
     "name": "Ignore",
     "icon": "EyeOff",
     "color": "var(--muted-foreground)",
-    "rules": [
-      { "keyword": "ישראכרט בע\"מ" }
-    ]
+    "rules": [{ "keyword": "ישראכרט בע\"מ" }]
   },
   {
     "id": "other",

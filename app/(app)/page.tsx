@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import useSWR from "swr";
 import { BudgetProgress } from "@/components/budget-progress";
 import { CategoryPieChart } from "@/components/category-pie-chart";
@@ -8,7 +8,7 @@ import { MonthSelector } from "@/components/month-selector";
 import { MonthlyTrendChart } from "@/components/monthly-trend-chart";
 import { SummaryCards } from "@/components/summary-cards";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getCurrentMonth } from "@/lib/format";
+import { useMonthParam } from "@/hooks/use-month-param";
 import type { Budget, Category } from "@/lib/types";
 
 function DashboardContent({ month }: { month: string }) {
@@ -44,7 +44,7 @@ function DashboardContent({ month }: { month: string }) {
 }
 
 export default function DashboardPage() {
-  const [month, setMonth] = useState(getCurrentMonth);
+  const [month, setMonth] = useMonthParam();
 
   return (
     <div className="space-y-6">

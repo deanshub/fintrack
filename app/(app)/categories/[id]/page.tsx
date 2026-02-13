@@ -11,7 +11,7 @@ import { TransactionEditSheet } from "@/components/transaction-edit-sheet";
 import { TransactionTable } from "@/components/transaction-table";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getCurrentMonth } from "@/lib/format";
+import { useMonthParam } from "@/hooks/use-month-param";
 import type { Category, Transaction } from "@/lib/types";
 
 function CategoryTransactions({ categoryId, month }: { categoryId: string; month: string }) {
@@ -43,7 +43,7 @@ export default function CategoryDetailPage() {
   const params = useParams<{ id: string }>();
   const router = useRouter();
   const { mutate } = useSWRConfig();
-  const [month, setMonth] = useState(getCurrentMonth);
+  const [month, setMonth] = useMonthParam();
   const [editOpen, setEditOpen] = useState(false);
 
   const { data: categories } = useSWR<Category[]>("/api/categories");

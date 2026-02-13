@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getCurrentMonth } from "@/lib/format";
+import { useMonthParam } from "@/hooks/use-month-param";
 import type { Category, Transaction } from "@/lib/types";
 
 const ALL_CATEGORIES = "__all__";
@@ -54,7 +54,7 @@ function TransactionsContent({
 }
 
 export default function TransactionsPage() {
-  const [month, setMonth] = useState(getCurrentMonth);
+  const [month, setMonth] = useMonthParam();
   const [categoryFilter, setCategoryFilter] = useState(ALL_CATEGORIES);
   const [search, setSearch] = useState("");
 

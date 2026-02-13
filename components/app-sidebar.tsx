@@ -1,4 +1,8 @@
+"use client";
+
 import { ArrowLeftRight, LayoutDashboard, Settings, Tag, Target } from "lucide-react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -20,6 +24,14 @@ const NAV_ITEMS = [
 ];
 
 export function AppSidebar() {
+  const searchParams = useSearchParams();
+  const month = searchParams.get("month");
+
+  function buildHref(base: string) {
+    if (!month) return base;
+    return `${base}?month=${month}`;
+  }
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -38,10 +50,10 @@ export function AppSidebar() {
               {NAV_ITEMS.map((item) => (
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton asChild>
-                    <a href={item.href}>
+                    <Link href={buildHref(item.href)}>
                       <item.icon />
                       <span>{item.label}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
-import { formatCurrency, getCurrentMonth } from "@/lib/format";
+import { useMonthParam } from "@/hooks/use-month-param";
+import { formatCurrency } from "@/lib/format";
 import { type Budget, type Category, IGNORE_CATEGORY_ID } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -142,7 +143,7 @@ function BudgetContent({ month }: { month: string }) {
 }
 
 export default function BudgetsPage() {
-  const [month, setMonth] = useState(getCurrentMonth);
+  const [month, setMonth] = useMonthParam();
 
   return (
     <div className="space-y-6">

@@ -1,9 +1,9 @@
 "use client";
 
 import { addMonths, format, parse } from "date-fns";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CalendarCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { formatMonth } from "@/lib/format";
+import { formatMonth, getCurrentMonth } from "@/lib/format";
 
 export function MonthSelector({
   month,
@@ -12,6 +12,9 @@ export function MonthSelector({
   month: string;
   onChange: (month: string) => void;
 }) {
+  const currentMonth = getCurrentMonth();
+  const isCurrentMonth = month === currentMonth;
+
   function shift(delta: number) {
     const date = parse(month, "yyyy-MM", new Date());
     const next = format(addMonths(date, delta), "yyyy-MM");
@@ -27,6 +30,16 @@ export function MonthSelector({
       <Button variant="outline" size="icon" onClick={() => shift(1)}>
         <ChevronRight className="h-4 w-4" />
       </Button>
+      {!isCurrentMonth && (
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => onChange(currentMonth)}
+          title="Go to current month"
+        >
+          <CalendarCheck className="h-4 w-4" />
+        </Button>
+      )}
     </div>
   );
 }
