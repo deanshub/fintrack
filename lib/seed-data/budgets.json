@@ -1,0 +1,62 @@
+[
+  {
+    "month": "2025-11",
+    "globalLimit": 1500000,
+    "categoryLimits": {
+      "groceries": 200000,
+      "dining": 100000,
+      "transport": 80000,
+      "housing": 550000,
+      "utilities": 80000,
+      "entertainment": 50000,
+      "shopping": 80000,
+      "health": 40000,
+      "subscriptions": 20000
+    }
+  },
+  {
+    "month": "2025-12",
+    "globalLimit": 1500000,
+    "categoryLimits": {
+      "groceries": 200000,
+      "dining": 100000,
+      "transport": 80000,
+      "housing": 550000,
+      "utilities": 80000,
+      "entertainment": 50000,
+      "shopping": 80000,
+      "health": 40000,
+      "subscriptions": 20000
+    }
+  },
+  {
+    "month": "2026-01",
+    "globalLimit": 1500000,
+    "categoryLimits": {
+      "groceries": 200000,
+      "dining": 100000,
+      "transport": 80000,
+      "housing": 550000,
+      "utilities": 80000,
+      "entertainment": 50000,
+      "shopping": 80000,
+      "health": 40000,
+      "subscriptions": 20000
+    }
+  },
+  {
+    "month": "2026-02",
+    "globalLimit": 1500000,
+    "categoryLimits": {
+      "groceries": 200000,
+      "dining": 100000,
+      "transport": 80000,
+      "housing": 550000,
+      "utilities": 80000,
+      "entertainment": 50000,
+      "shopping": 80000,
+      "health": 40000,
+      "subscriptions": 20000
+    }
+  }
+]

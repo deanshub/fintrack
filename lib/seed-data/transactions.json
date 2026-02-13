@@ -1,0 +1,2498 @@
+{
+  "2025-04": [
+    {
+      "id": "1525b6164f3bc71a",
+      "date": "2025-04-06",
+      "amount": 14170,
+      "description": "לא הוצג ליברה ביטוח חובה ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "b24f303e3a861048",
+      "date": "2025-04-06",
+      "amount": 34950,
+      "description": "לא הוצג ליברה עסקאות ביטוח ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    }
+  ],
+  "2025-08": [
+    {
+      "id": "d44bb7daf034fcd0",
+      "date": "2025-08-20",
+      "amount": 26900,
+      "description": "קצבת ילדים",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "0c917ea4b5444b9b",
+      "date": "2025-08-18",
+      "amount": 402975,
+      "description": "הזמנת מטח מראש",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "da060c783737169f",
+      "date": "2025-08-17",
+      "amount": 400000,
+      "description": "משיכה מבנקט",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    }
+  ],
+  "2025-09": [
+    {
+      "id": "4bf368cebf0c91ee",
+      "date": "2025-09-30",
+      "amount": 2980320,
+      "description": "וייבר לאב בע\"מ",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "e730079365bcf23e",
+      "date": "2025-09-26",
+      "amount": 3380,
+      "description": "ק VERCEL DOMAINS COVINA $",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "3adecd3bb4f14834",
+      "date": "2025-09-25",
+      "amount": 26648,
+      "description": "ני\"עז עמ קניה",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "233990bb8a78eced",
+      "date": "2025-09-25",
+      "amount": 200000,
+      "description": "העברה/הפקדה",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "99db44a7ffa54ef6",
+      "date": "2025-09-21",
+      "amount": 100000,
+      "description": "העברה-נייד",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "6e3fd8ec1600c525",
+      "date": "2025-09-19",
+      "amount": 12368,
+      "description": "ני\"ע-קניה",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "7cd3b1b21878717f",
+      "date": "2025-09-19",
+      "amount": 12368,
+      "description": "מענק ללקוח",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "e0fe871b8cf30cbb",
+      "date": "2025-09-17",
+      "amount": 420000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "1016d6e62a994bb0",
+      "date": "2025-09-17",
+      "amount": 26900,
+      "description": "קצבת ילדים",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "5a0c932b5b447ec0",
+      "date": "2025-09-12",
+      "amount": 400000,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "c2e16e6008c38f0f",
+      "date": "2025-09-10",
+      "amount": 979233,
+      "description": "פועלים-משכנתא",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "housing",
+      "categoryManual": false
+    },
+    {
+      "id": "fb6ac05c4cdec3b6",
+      "date": "2025-09-10",
+      "amount": 3390,
+      "description": "א SPOTIFYIL STOCKHOLM",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "subscriptions",
+      "categoryManual": false
+    },
+    {
+      "id": "704c3516c6b4aacd",
+      "date": "2025-09-08",
+      "amount": 6990,
+      "description": "א NETFLIX.COM LOS GATOS",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "subscriptions",
+      "categoryManual": false
+    },
+    {
+      "id": "50b9be8255621dc2",
+      "date": "2025-09-07",
+      "amount": 135000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "90f737b21eaef396",
+      "date": "2025-09-05",
+      "amount": 25080,
+      "description": "מכבי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "0548a60fce874200",
+      "date": "2025-09-02",
+      "amount": 18978,
+      "description": "מקס איט פיננסי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "ad51c9bc8b9b2483",
+      "date": "2025-09-02",
+      "amount": 868067,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "e84c28705094848a",
+      "date": "2025-09-02",
+      "amount": 15020,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "ec6f605c68939cb9",
+      "date": "2025-09-02",
+      "amount": 1379952,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "397d132ea6cd94a2",
+      "date": "2025-09-02",
+      "amount": 92769,
+      "description": "ישראכרט",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "7d48afeeba8a65fd",
+      "date": "2025-09-02",
+      "amount": 2619419,
+      "description": "משכורת",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "e8421851d2d14950",
+      "date": "2025-09-01",
+      "amount": 380000,
+      "description": "הפק.שיק בסלולר",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "89a498acc7c656ba",
+      "date": "2025-09-01",
+      "amount": 125000,
+      "description": "מופ\"ת מילואים",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "1d290ac1e1dc4119",
+      "date": "2025-09-01",
+      "amount": 2998620,
+      "description": "וייבר לאב בע\"מ",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    }
+  ],
+  "2025-10": [
+    {
+      "id": "acbe7edbbfbd3cb8",
+      "date": "2025-10-30",
+      "amount": 180000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "ba1c72e8ca6bdb44",
+      "date": "2025-10-20",
+      "amount": 26900,
+      "description": "קצבת ילדים",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "66bfdfca6b85122e",
+      "date": "2025-10-16",
+      "amount": 135000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "e7b26096a2360144",
+      "date": "2025-10-10",
+      "amount": 979233,
+      "description": "פועלים-משכנתא",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "housing",
+      "categoryManual": false
+    },
+    {
+      "id": "ed60b04d09bdc961",
+      "date": "2025-10-10",
+      "amount": 23077,
+      "description": "א IHERB IHERB.COM IHERB.COM",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "shopping",
+      "categoryManual": false
+    },
+    {
+      "id": "70ad54d3e3ebb2ac",
+      "date": "2025-10-10",
+      "amount": 3390,
+      "description": "א SPOTIFYIL STOCKHOLM",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "subscriptions",
+      "categoryManual": false
+    },
+    {
+      "id": "d33f6857cb6a1cee",
+      "date": "2025-10-09",
+      "amount": 80000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "c7cebd4d8e55fdaa",
+      "date": "2025-10-09",
+      "amount": 18306,
+      "description": "א PAYPAL *NINTENDO 4029357733",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "e952a755c9bc3c1b",
+      "date": "2025-10-09",
+      "amount": 21968,
+      "description": "א PAYPAL *NINTENDO 4029357733",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "41be86146fe9ef2a",
+      "date": "2025-10-08",
+      "amount": 6990,
+      "description": "א NETFLIX.COM LOS GATOS",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "subscriptions",
+      "categoryManual": false
+    },
+    {
+      "id": "ce34154ad84880bf",
+      "date": "2025-10-07",
+      "amount": 3649,
+      "description": "א PAYPAL *NINTENDO 4029357733",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "c06cbcfbdd902afc",
+      "date": "2025-10-07",
+      "amount": 14607,
+      "description": "א PAYPAL *NINTENDO 4029357733",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "1b3e912bd8d5ea0c",
+      "date": "2025-10-07",
+      "amount": 24712,
+      "description": "א AMAZON RETA* NV40F SEATTLE $",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "shopping",
+      "categoryManual": false
+    },
+    {
+      "id": "7a7d30e5f31c2a07",
+      "date": "2025-10-06",
+      "amount": 400000,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "f2ba76bc5494d308",
+      "date": "2025-10-06",
+      "amount": 1200,
+      "description": "עמ'הקצאת אשראי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "c41edc6ee5b79fe7",
+      "date": "2025-10-06",
+      "amount": 31357,
+      "description": "א PAYPAL *NINTENDO 4029357733",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "0c0d18ccff6b62e0",
+      "date": "2025-10-05",
+      "amount": 25252,
+      "description": "מכבי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "8e06335cb1ccf5a4",
+      "date": "2025-10-03",
+      "amount": 19103,
+      "description": "מקס איט פיננסי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "9808312490f855fc",
+      "date": "2025-10-03",
+      "amount": 1209290,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "e2a49ddef9ac0747",
+      "date": "2025-10-03",
+      "amount": 1609586,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "541d111bc5be5082",
+      "date": "2025-10-03",
+      "amount": 21379,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "8c78455f4df9b70e",
+      "date": "2025-10-03",
+      "amount": 38789,
+      "description": "כאל",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "7acde8592ca820f6",
+      "date": "2025-10-03",
+      "amount": 420000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "02aafa829e8ec84a",
+      "date": "2025-10-03",
+      "amount": 380000,
+      "description": "הפק.שיק בסלולר",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "f0468d063b6cf883",
+      "date": "2025-10-03",
+      "amount": 2629581,
+      "description": "משכורת",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    }
+  ],
+  "2025-11": [
+    {
+      "id": "e5abab30af1497d7",
+      "date": "2025-11-20",
+      "amount": 2613,
+      "description": "ני\"עז עמ קניה",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "4f5a64a11cdad4d6",
+      "date": "2025-11-20",
+      "amount": 1442258,
+      "description": "ני\"עז- קניה",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "345b9b575b7c07dc",
+      "date": "2025-11-20",
+      "amount": 26900,
+      "description": "קצבת ילדים",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "e42f2ecb79dc10e3",
+      "date": "2025-11-10",
+      "amount": 400000,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "8d04c4446d128322",
+      "date": "2025-11-10",
+      "amount": 979233,
+      "description": "פועלים-משכנתא",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "housing",
+      "categoryManual": false
+    },
+    {
+      "id": "5ee840b9cb1b83fe",
+      "date": "2025-11-10",
+      "amount": 80000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "7c7a84878285325c",
+      "date": "2025-11-10",
+      "amount": 420000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "28e700922e717cbf",
+      "date": "2025-11-05",
+      "amount": 25106,
+      "description": "מכבי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "a564310522f7337f",
+      "date": "2025-11-03",
+      "amount": 2630757,
+      "description": "משכורת",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "92b19f4821f1508c",
+      "date": "2025-11-02",
+      "amount": 18994,
+      "description": "מקס איט פיננסי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "b7fa50b986950b13",
+      "date": "2025-11-02",
+      "amount": 858786,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "3a0274accebbb601",
+      "date": "2025-11-02",
+      "amount": 1439024,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "2cebb93545eb4fb9",
+      "date": "2025-11-02",
+      "amount": 34550,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "261424ad9401ea1d",
+      "date": "2025-11-02",
+      "amount": 380000,
+      "description": "הפק.שיק בסלולר",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "3fc9040d76cfd05b",
+      "date": "2025-11-02",
+      "amount": 17889,
+      "description": "ישראכרט",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "c8bc056b4b3bde3c",
+      "date": "2025-11-02",
+      "amount": 2994020,
+      "description": "וייבר לאב בע\"מ",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    }
+  ],
+  "2025-12": [
+    {
+      "id": "339c146231eae15c",
+      "date": "2025-12-31",
+      "amount": 12000,
+      "description": "תש . נייד אהרלה טוסט נקניק מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "dc81d9c73ae4777f",
+      "date": "2025-12-31",
+      "amount": 5400,
+      "description": "תש . נייד בהדונס בני ברק שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "70c504c47618d04d",
+      "date": "2025-12-30",
+      "amount": 400000,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "86e409f05cac9997",
+      "date": "2025-12-30",
+      "amount": 17900,
+      "description": "תש . נייד פיצריה אותנטיקה שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "0e266804e4ed149a",
+      "date": "2025-12-29",
+      "amount": 4400,
+      "description": "תש . נייד נייט קוקי מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "55ec54d5315df9db",
+      "date": "2025-12-29",
+      "amount": 400000,
+      "description": "משיכת מזומנים שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "de77789d3e796ee5",
+      "date": "2025-12-29",
+      "amount": 1170,
+      "description": "תש . נייד קליית איבגי נס ציונה מעדניות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "c1cbbebbf3c452ff",
+      "date": "2025-12-29",
+      "amount": 6000,
+      "description": "תש . נייד ביגוד האופנה נס ציונ הלבשה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "shopping",
+      "categoryManual": false
+    },
+    {
+      "id": "26cde6dbf624a665",
+      "date": "2025-12-29",
+      "amount": 39990,
+      "description": "תש . נייד אופיס דיפו - נס ציונ צרכי משרד",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "shopping",
+      "categoryManual": false
+    },
+    {
+      "id": "1446d558ddbc890a",
+      "date": "2025-12-29",
+      "amount": 2500,
+      "description": "תש . נייד הפינה רחובות מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "276ce45b19d59824",
+      "date": "2025-12-29",
+      "amount": 38000,
+      "description": "תש . נייד רגעים אבזרי אפנה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "shopping",
+      "categoryManual": false
+    },
+    {
+      "id": "f18deaab490ee63e",
+      "date": "2025-12-28",
+      "amount": 4264,
+      "description": "ה. קבע מנורה מבטחים-חיים/בר ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "6228bea21c24ac1b",
+      "date": "2025-12-28",
+      "amount": 7442,
+      "description": "ה. קבע פנגו- כבישי אגרה שירותי רכב",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "889d258866a0b38c",
+      "date": "2025-12-28",
+      "amount": 28320,
+      "description": "לא הוצג תן ביס מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "b6e0ba4ac246c117",
+      "date": "2025-12-28",
+      "amount": 85379,
+      "description": "ה. קבע מי ציונה בע\"מ תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "8d4f1cc8a0ce76f1",
+      "date": "2025-12-28",
+      "amount": 22949,
+      "description": "ה. קבע ישיר ביטוח דירה ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "3288b939a7b741f1",
+      "date": "2025-12-28",
+      "amount": 9540,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "116f404f190acfc3",
+      "date": "2025-12-27",
+      "amount": 3538,
+      "description": "ה. קבע פנגו חשבונית חודשית שירותי רכב",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "338b2f26a7873d3c",
+      "date": "2025-12-26",
+      "amount": 154812,
+      "description": "תש . נייד חברת החשמל לישראל בע תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "4d24ff46e769abc1",
+      "date": "2025-12-25",
+      "amount": 8500,
+      "description": "תש . נייד דוקטור אורי פרייז מר שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "e6eb815681334314",
+      "date": "2025-12-25",
+      "amount": 9990,
+      "description": "לא הוצג פרגו נס ציונה און לי שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "e207177f30f93874",
+      "date": "2025-12-25",
+      "amount": 3000,
+      "description": "תש . נייד מינימרקט המושבה שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "e6e237c139254d3c",
+      "date": "2025-12-25",
+      "amount": 5300,
+      "description": "תש . נייד נונו מימי נס ציונה שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "a3dd4c1dfc9ad998",
+      "date": "2025-12-25",
+      "amount": 18600,
+      "description": "ה. קבע מ. התחבורה-פנגו מוביט תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "138e5c7768c3cbc0",
+      "date": "2025-12-24",
+      "amount": 22500,
+      "description": "תש . נייד ביר גארדן תרבות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "entertainment",
+      "categoryManual": false
+    },
+    {
+      "id": "869891d50c42e2b4",
+      "date": "2025-12-24",
+      "amount": 4971,
+      "description": "תש . נייד חניוני נכסי אריאל- ח שירותי רכב",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "646a1195f21f14bb",
+      "date": "2025-12-24",
+      "amount": 3500,
+      "description": "תש . נייד נאייקס ישראל חניונים שירותי רכב",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "14160b45990a50ea",
+      "date": "2025-12-23",
+      "amount": 400000,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "b767d15fd4504c76",
+      "date": "2025-12-23",
+      "amount": 5500,
+      "description": "תש . נייד בהדונס בני ברק שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "91a1293466734965",
+      "date": "2025-12-22",
+      "amount": 400000,
+      "description": "משיכת מזומנים שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "83d077666148ec89",
+      "date": "2025-12-22",
+      "amount": 14008,
+      "description": "ה. קבע חשבון לשרותי סלקום תקשורת",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "94cb1ad9600959ec",
+      "date": "2025-12-22",
+      "amount": 13000,
+      "description": "תש . נייד שווארמה שמש שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "63351b07552b2e65",
+      "date": "2025-12-21",
+      "amount": 26900,
+      "description": "קצבת ילדים",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "8113e1a219edc2e7",
+      "date": "2025-12-20",
+      "amount": 5577,
+      "description": "ה. קבע מגדל חיים/בריאות ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "744f4d29efdbe8de",
+      "date": "2025-12-20",
+      "amount": 12287,
+      "description": "ה. קבע מגדל חיים/בריאות ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "6ec055c9f06d0082",
+      "date": "2025-12-20",
+      "amount": 46940,
+      "description": "תש . נייד טיב טעם רשתות ראשל\"צ מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "9b8b716411d8112a",
+      "date": "2025-12-20",
+      "amount": 30901,
+      "description": "ה. קבע מנורה מבטחים-חיים/בר ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "4f1c7f0f19a0df65",
+      "date": "2025-12-20",
+      "amount": 28324,
+      "description": "ה. קבע מנורה מבטחים-חיים/בר ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "04d3679bd4439957",
+      "date": "2025-12-19",
+      "amount": 15070,
+      "description": "ני\"ע-קניה",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "d2dd89bb91bb23b3",
+      "date": "2025-12-19",
+      "amount": 15070,
+      "description": "מענק ללקוח",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "4a07a9a226f6ccb1",
+      "date": "2025-12-19",
+      "amount": 400,
+      "description": "לא הוצג תן ביס מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "6844a55cf246243a",
+      "date": "2025-12-19",
+      "amount": 11500,
+      "description": "תש . נייד ספרינקלס בייקרי-מזרח מעדניות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "0d9030fcd79fbf7e",
+      "date": "2025-12-18",
+      "amount": 140000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "0a4400cf7d361cf2",
+      "date": "2025-12-18",
+      "amount": 3016,
+      "description": "ה. קבע חברת פרטנר תקשורת בע תקשורת",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "5f215e02858073cf",
+      "date": "2025-12-18",
+      "amount": 3530,
+      "description": "ה. קבע חברת פרטנר תקשורת בע תקשורת",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "b0ac0b349a62449e",
+      "date": "2025-12-17",
+      "amount": 28284,
+      "description": "תש . נייד סונול דלק",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "936931fa38e3dfd0",
+      "date": "2025-12-17",
+      "amount": 33900,
+      "description": "תש . נייד קוקו נקו מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "0d46b1e8802e6278",
+      "date": "2025-12-17",
+      "amount": 4000,
+      "description": "תש . נייד חניון פלורנטין שירותי רכב",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "7332055ad5c65dff",
+      "date": "2025-12-17",
+      "amount": 6300,
+      "description": "תש . נייד מפגש שמש שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "527700d3bdf541b2",
+      "date": "2025-12-16",
+      "amount": 5400,
+      "description": "תש . נייד בהדונס בני ברק שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "73706a398a242ff6",
+      "date": "2025-12-15",
+      "amount": 2900,
+      "description": "תש . נייד קפה שוורצמן מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "aefa03304608a3e0",
+      "date": "2025-12-15",
+      "amount": 18739,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "c1957c55628c1d4b",
+      "date": "2025-12-15",
+      "amount": 3100,
+      "description": "תש . נייד טאטי שרונה מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "686bb836c7471f97",
+      "date": "2025-12-15",
+      "amount": 16500,
+      "description": "תש . נייד פורת יעקב והראל בע?מ שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "0042ac70e410cd35",
+      "date": "2025-12-15",
+      "amount": 10000,
+      "description": "תש . נייד חניון עזריאלי שרונה שירותי רכב",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "7db01dd1ef821f2e",
+      "date": "2025-12-12",
+      "amount": 3500,
+      "description": "לא הוצג ליברה עסקאות ביטוח ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "3bc41acef6088545",
+      "date": "2025-12-12",
+      "amount": 38917,
+      "description": "תש . נייד דור - נס ציונה דלק",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "8b68b918ccfea8ee",
+      "date": "2025-12-12",
+      "amount": 5384,
+      "description": "תש . נייד סופר פארם שער רחובות פארמה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "b0bf14b9fde4a0de",
+      "date": "2025-12-12",
+      "amount": 700,
+      "description": "תש . נייד שוקומט בע\"מ מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "df80f18b34c1d741",
+      "date": "2025-12-11",
+      "amount": 34500,
+      "description": "ה. קבע חוגים נס ציונה תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "f164055f57d050b5",
+      "date": "2025-12-11",
+      "amount": 25440,
+      "description": "תש . נייד זו סנטר שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "9c9f470d46641672",
+      "date": "2025-12-10",
+      "amount": 979233,
+      "description": "פועלים-משכנתא",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "housing",
+      "categoryManual": false
+    },
+    {
+      "id": "ee0a73aae6bf1393",
+      "date": "2025-12-10",
+      "amount": 17300,
+      "description": "לא הוצג תן ביס מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "05b50cefc5a0f85f",
+      "date": "2025-12-09",
+      "amount": 5000,
+      "description": "לא הוצג PAYBOX שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "24d89bcbd306c014",
+      "date": "2025-12-09",
+      "amount": 12500,
+      "description": "תש . נייד חזקאל מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "6c0959b6e8de9f75",
+      "date": "2025-12-08",
+      "amount": 126,
+      "description": "ני\"ע-דיבידנד",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "10e8686ac4b06ad0",
+      "date": "2025-12-08",
+      "amount": 3180,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "a7e0c261e5c0c89b",
+      "date": "2025-12-07",
+      "amount": 7340,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "d58fed9a84bdffa5",
+      "date": "2025-12-07",
+      "amount": 7800,
+      "description": "תש . נייד פאזל בורגר ב.ב מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "5f5c406070da45fb",
+      "date": "2025-12-06",
+      "amount": 98201,
+      "description": "תש . נייד טיב טעם רשתות ראשל\"צ מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "648d016954bf1f68",
+      "date": "2025-12-05",
+      "amount": 33026,
+      "description": "מכבי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "191b6f18f63356fb",
+      "date": "2025-12-05",
+      "amount": 3658,
+      "description": "תש . נייד מכבי פארם נס ציונה שרות רפואי",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "38f5e92d37fccd2f",
+      "date": "2025-12-05",
+      "amount": 27000,
+      "description": "לא הוצג קסטיליה הפקות בע\"מ תרבות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "entertainment",
+      "categoryManual": false
+    },
+    {
+      "id": "f8de39d88bcd250f",
+      "date": "2025-12-04",
+      "amount": 18240,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "f8dde685273b430c",
+      "date": "2025-12-04",
+      "amount": 11190,
+      "description": "לא הוצג פרגו נס ציונה און לי שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "8f31dca95528e59d",
+      "date": "2025-12-03",
+      "amount": 16000,
+      "description": "תש . נייד ג'ירף מסעדות נס ציונ שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "b8a51469aef017cb",
+      "date": "2025-12-02",
+      "amount": 19084,
+      "description": "מקס איט פיננסי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "f16c92cedf3291b0",
+      "date": "2025-12-02",
+      "amount": 1284465,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "570db19062ad1469",
+      "date": "2025-12-02",
+      "amount": 19610,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "e61317a7e7512c72",
+      "date": "2025-12-02",
+      "amount": 1646382,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "60550bbfc1f622ae",
+      "date": "2025-12-02",
+      "amount": 17702,
+      "description": "ה. קבע קרן מכבי- חיוב שרות רפואי",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "6b23e7c48de32e91",
+      "date": "2025-12-02",
+      "amount": 5300,
+      "description": "תש . נייד בהדונס בני ברק שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "26d04d8c6b7ceac1",
+      "date": "2025-12-01",
+      "amount": 420000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "fdb2f1c04237f7e6",
+      "date": "2025-12-01",
+      "amount": 135000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "af1fdaa148dce3b9",
+      "date": "2025-12-01",
+      "amount": 380000,
+      "description": "הפק.שיק בסלולר",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "237e3afaaa86adfe",
+      "date": "2025-12-01",
+      "amount": 2629451,
+      "description": "משכורת",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "968bac09815a8c24",
+      "date": "2025-12-01",
+      "amount": 3001020,
+      "description": "וייבר לאב בע\"מ",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "f7f5ba8bfb6ce7d9",
+      "date": "2025-12-01",
+      "amount": 3000,
+      "description": "תש . נייד פופה לופה צעצועים",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "shopping",
+      "categoryManual": false
+    },
+    {
+      "id": "dfac2b771acc7aed",
+      "date": "2025-12-01",
+      "amount": 3800,
+      "description": "תש . נייד קונדיטורית בני'ס מעדניות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    }
+  ],
+  "2026-01": [
+    {
+      "id": "d072372630fdd1b3",
+      "date": "2026-01-30",
+      "amount": 400000,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "3dff3ef2903d8f5f",
+      "date": "2026-01-30",
+      "amount": 50000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "56a1287e9c84aa03",
+      "date": "2026-01-30",
+      "amount": 4998,
+      "description": "ה. קבע מנורה מבטחים-חיים/בר ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "6ab64cc14e47112a",
+      "date": "2026-01-29",
+      "amount": 400000,
+      "description": "משיכת מזומנים שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "56e8abbffaa67f4f",
+      "date": "2026-01-29",
+      "amount": 31532,
+      "description": "ה. קבע מנורה מבטחים-חיים/בר ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "331fb8d949012828",
+      "date": "2026-01-29",
+      "amount": 28324,
+      "description": "ה. קבע מנורה מבטחים-חיים/בר ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "1e678fdac420ca14",
+      "date": "2026-01-29",
+      "amount": 8000,
+      "description": "לא הוצג היכל התרבות נס ציונה תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "entertainment",
+      "categoryManual": false
+    },
+    {
+      "id": "c4a41bf627b315d3",
+      "date": "2026-01-29",
+      "amount": 20480,
+      "description": "תש . נייד זו סנטר שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "3e001eec2dcb676d",
+      "date": "2026-01-29",
+      "amount": 9950,
+      "description": "תש . נייד אופיס דיפו - נס ציונ צרכי משרד",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "shopping",
+      "categoryManual": false
+    },
+    {
+      "id": "af24c8001e897baa",
+      "date": "2026-01-28",
+      "amount": 34601,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "96c21c0111001192",
+      "date": "2026-01-27",
+      "amount": 2069,
+      "description": "ה. קבע פנגו חשבונית חודשית שירותי רכב",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "945839ea15d74ff0",
+      "date": "2026-01-27",
+      "amount": 22949,
+      "description": "ה. קבע ישיר ביטוח דירה ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "b0048eb070cdf6cb",
+      "date": "2026-01-27",
+      "amount": 6300,
+      "description": "תש . נייד מפגש שמש שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "2e7f2f04c00d7024",
+      "date": "2026-01-26",
+      "amount": 11900,
+      "description": "תש . נייד מובילנד תל אביב תרבות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "entertainment",
+      "categoryManual": false
+    },
+    {
+      "id": "eb9bffbd0db7baa2",
+      "date": "2026-01-25",
+      "amount": 19800,
+      "description": "לא הוצג מובילנד תל אביב תרבות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "entertainment",
+      "categoryManual": false
+    },
+    {
+      "id": "b70dbf09f642876b",
+      "date": "2026-01-25",
+      "amount": 12000,
+      "description": "ה. קבע מ. התחבורה-פנגו מוביט תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "898420b19727f9e9",
+      "date": "2026-01-25",
+      "amount": 1380,
+      "description": "תש . נייד ב\"ב MOOOB שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "5d1887c24e66396f",
+      "date": "2026-01-23",
+      "amount": 19670,
+      "description": "תש . נייד CARREFOUR נצר סירני- מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "3050c09b9e79b282",
+      "date": "2026-01-23",
+      "amount": 3440,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "3b3383d74fc0bea1",
+      "date": "2026-01-23",
+      "amount": 2916,
+      "description": "תש . נייד פאנס במושבה מעדניות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "3b215a1606c93b4d",
+      "date": "2026-01-23",
+      "amount": 9800,
+      "description": "תש . נייד גולדה סחרוב שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "6ec9712bdc4c1b72",
+      "date": "2026-01-22",
+      "amount": 14008,
+      "description": "ה. קבע חשבון לשרותי סלקום תקשורת",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "efc386209a53e61b",
+      "date": "2026-01-22",
+      "amount": 1800,
+      "description": "לא הוצג טאבו-משפטים רש . מקרקע תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "16004121755da232",
+      "date": "2026-01-22",
+      "amount": 10300,
+      "description": "תש . נייד קפה שוורצמן מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "4089d429d69e906d",
+      "date": "2026-01-22",
+      "amount": 900,
+      "description": "תש . נייד קפה לנדוור נס ציונה מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "7b49022a1f917b9a",
+      "date": "2026-01-21",
+      "amount": 33032,
+      "description": "תש . נייד דור-ארגמן דלק",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "7712e57e9381140a",
+      "date": "2026-01-21",
+      "amount": 500,
+      "description": "תש . נייד טאבון בן גוריון בע\"מ מעדניות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "3c8ceb46c921f557",
+      "date": "2026-01-20",
+      "amount": 27600,
+      "description": "קצבת ילדים",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "795c71a1a9870d3c",
+      "date": "2026-01-20",
+      "amount": 5577,
+      "description": "ה. קבע מגדל חיים/בריאות ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "19aef241f29b66ae",
+      "date": "2026-01-20",
+      "amount": 12747,
+      "description": "ה. קבע מגדל חיים/בריאות ביטוח",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "insurance",
+      "categoryManual": false
+    },
+    {
+      "id": "05bc323ec8b4a8f1",
+      "date": "2026-01-20",
+      "amount": 25300,
+      "description": "תש . נייד אגאדיר ב. ס.ר בני ברק שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "f4e39c1fee8e3591",
+      "date": "2026-01-19",
+      "amount": 14000,
+      "description": "תש . נייד קפה לנדוור נס ציונה מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "76161ac05e600082",
+      "date": "2026-01-19",
+      "amount": 1600,
+      "description": "תש . נייד פאנס מעדניות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "0b97b6ccf42ae3ec",
+      "date": "2026-01-18",
+      "amount": 210000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "a6f6d7c03edbf7ab",
+      "date": "2026-01-18",
+      "amount": 3016,
+      "description": "ה. קבע חברת פרטנר תקשורת בע תקשורת",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "bfdf9ed3a0c3f15d",
+      "date": "2026-01-18",
+      "amount": 3530,
+      "description": "ה. קבע חברת פרטנר תקשורת בע תקשורת",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "22ba27379f7b1710",
+      "date": "2026-01-18",
+      "amount": 5400,
+      "description": "תש . נייד בהדונס בני ברק שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "a304772e769a4582",
+      "date": "2026-01-17",
+      "amount": 84722,
+      "description": "תש . נייד טיב טעם רשתות ראשל\"צ מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "716e20493ed611a5",
+      "date": "2026-01-17",
+      "amount": 3000,
+      "description": "תש . נייד טיב טעם רשתות ראשל\"צ מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "581e1c54457c4d06",
+      "date": "2026-01-14",
+      "amount": 2200,
+      "description": "תש . נייד טאטי שרונה מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "50eacc4bc0e175fd",
+      "date": "2026-01-13",
+      "amount": 5300,
+      "description": "תש . נייד מפגש שמש שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "8b0133c23dbcb4d2",
+      "date": "2026-01-12",
+      "amount": 7700,
+      "description": "תש . נייד סינמה סיטי- מזנון תרבות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "entertainment",
+      "categoryManual": false
+    },
+    {
+      "id": "c37d0874479a92dd",
+      "date": "2026-01-12",
+      "amount": 8000,
+      "description": "תש . נייד מקדונלס ישפרו נס ציו מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "c1e5e15a775ccc4e",
+      "date": "2026-01-12",
+      "amount": 12980,
+      "description": "תש . נייד טויס אר אס סינימה סי שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "8e236680e09eb10d",
+      "date": "2026-01-11",
+      "amount": 973001,
+      "description": "פועלים-משכנתא",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "housing",
+      "categoryManual": false
+    },
+    {
+      "id": "082702916792d173",
+      "date": "2026-01-11",
+      "amount": 3300,
+      "description": "תש . נייד אר קפה מידטאון מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "bc5268d5b8aef149",
+      "date": "2026-01-11",
+      "amount": 76000,
+      "description": "ה. קבע חוגים נס ציונה תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "4b0592c32449f7cf",
+      "date": "2026-01-09",
+      "amount": 1300,
+      "description": "תש . נייד בורגראנץ נס ציונה מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "1f91552922e884e1",
+      "date": "2026-01-09",
+      "amount": 137900,
+      "description": "תש . נייד קיי . אס פיי נס ציונה- כלי בית",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "shopping",
+      "categoryManual": false
+    },
+    {
+      "id": "58112ec07d48890d",
+      "date": "2026-01-09",
+      "amount": 1300,
+      "description": "תש . נייד קסם בייקרי ישתבח שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "89cfc111fbf048be",
+      "date": "2026-01-09",
+      "amount": 16275,
+      "description": "תש . נייד סופר נח ארגמן שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "95f43722aafdaa42",
+      "date": "2026-01-08",
+      "amount": 8500,
+      "description": "תש . נייד קפה לנדוור נס ציונה מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "0570e2cd378001f5",
+      "date": "2026-01-08",
+      "amount": 7700,
+      "description": "תש . נייד גולדה נס ציונה שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "3b9e793a34df93ab",
+      "date": "2026-01-07",
+      "amount": 31202,
+      "description": "תש . נייד סונול דלק",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "bb54941fa01e1cd6",
+      "date": "2026-01-07",
+      "amount": 8000,
+      "description": "תש . נייד מפגש ברלין מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "51e529492b497364",
+      "date": "2026-01-06",
+      "amount": 5400,
+      "description": "תש . נייד בהדונס בני ברק שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "edc55fc821ab57ea",
+      "date": "2026-01-05",
+      "amount": 42270,
+      "description": "מכבי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "e8e9e4088ee48a7c",
+      "date": "2026-01-05",
+      "amount": 21558,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "c8dc3b4770eb2cab",
+      "date": "2026-01-05",
+      "amount": 3800,
+      "description": "תש . נייד הפינה רחובות מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "7b5102a751a736d4",
+      "date": "2026-01-04",
+      "amount": 180000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "c99280dd5572b8c5",
+      "date": "2026-01-04",
+      "amount": 420000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "6151e6feef390670",
+      "date": "2026-01-04",
+      "amount": 1200,
+      "description": "עמ'הקצאת אשראי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "e638981ee4a4940d",
+      "date": "2026-01-04",
+      "amount": 259200,
+      "description": "לא הוצג עירית נס ציונה תש' רשויות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "utilities",
+      "categoryManual": false
+    },
+    {
+      "id": "8e0de8f68f7a43cf",
+      "date": "2026-01-04",
+      "amount": 28182,
+      "description": "ה. קבע קרן מכבי- חיוב שרות רפואי",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "9aeb24b34b16367c",
+      "date": "2026-01-03",
+      "amount": 15300,
+      "description": "תש . נייד FARM CAFE מסעדות/קפה",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "0b662f59c5476c71",
+      "date": "2026-01-03",
+      "amount": 2490,
+      "description": "תש . נייד דרגסטור פוד אבן גביר מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "2fa4b30fb21b7936",
+      "date": "2026-01-02",
+      "amount": 18996,
+      "description": "מקס איט פיננסי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "0687002c5da8abfd",
+      "date": "2026-01-02",
+      "amount": 1248279,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "160f29c77ac1abf5",
+      "date": "2026-01-02",
+      "amount": 13530,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "ed8bf38e3107637e",
+      "date": "2026-01-02",
+      "amount": 635816,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "8f8bf6ee2dbadfdd",
+      "date": "2026-01-02",
+      "amount": 1300,
+      "description": "תש . נייד קסם בייקרי ישתבח שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "dining",
+      "categoryManual": false
+    },
+    {
+      "id": "e102314fa9a71ada",
+      "date": "2026-01-02",
+      "amount": 20216,
+      "description": "תש . נייד סופר נח ארגמן שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "22f0a827293e76ae",
+      "date": "2026-01-02",
+      "amount": 35649,
+      "description": "תש . נייד יעד יובל נס ציונה דלק",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "transport",
+      "categoryManual": false
+    },
+    {
+      "id": "e3994dd8a0a13570",
+      "date": "2026-01-01",
+      "amount": 380000,
+      "description": "הפק.שיק בסלולר",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "8d1a02d7fb391f3e",
+      "date": "2026-01-01",
+      "amount": 2683665,
+      "description": "משכורת",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "277d5a480d14e220",
+      "date": "2026-01-01",
+      "amount": 3004520,
+      "description": "וייבר לאב בע\"מ",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "82a017c4bd68132c",
+      "date": "2026-01-01",
+      "amount": 17969,
+      "description": "תש . נייד שופרסל אקספרס ששת הי מכולת/סופר",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "groceries",
+      "categoryManual": false
+    },
+    {
+      "id": "c1d47af79a5f6b27",
+      "date": "2026-01-01",
+      "amount": 21900,
+      "description": "תש . נייד נונו מימי נס ציונה שונות",
+      "source": "isracard-5702",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    }
+  ],
+  "2026-02": [
+    {
+      "id": "ebbc69df7a31937f",
+      "date": "2026-02-10",
+      "amount": 966856,
+      "description": "פועלים-משכנתא",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "housing",
+      "categoryManual": false
+    },
+    {
+      "id": "3d67a624aff7e92e",
+      "date": "2026-02-05",
+      "amount": 42522,
+      "description": "מכבי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "health",
+      "categoryManual": false
+    },
+    {
+      "id": "53cac2ffd701c278",
+      "date": "2026-02-02",
+      "amount": 29494,
+      "description": "מקס איט פיננסי",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "c2baa99984fb6592",
+      "date": "2026-02-02",
+      "amount": 600724,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "acbf21dc72348948",
+      "date": "2026-02-02",
+      "amount": 1431331,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "f12756dcf9cc6d33",
+      "date": "2026-02-02",
+      "amount": 23050,
+      "description": "ישראכרט בע\"מ",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "12e0ce23182d1a28",
+      "date": "2026-02-02",
+      "amount": 2612161,
+      "description": "משכורת",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "363cfe8be05f98a9",
+      "date": "2026-02-01",
+      "amount": 225000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "4303cc1cb3f02865",
+      "date": "2026-02-01",
+      "amount": 420000,
+      "description": "העב' לאחר-נייד",
+      "source": "hapoalim",
+      "type": "expense",
+      "categoryId": "other",
+      "categoryManual": false
+    },
+    {
+      "id": "8c1d123bb162713c",
+      "date": "2026-02-01",
+      "amount": 380000,
+      "description": "הפק.שיק בסלולר",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    },
+    {
+      "id": "cea1a8074721ba05",
+      "date": "2026-02-01",
+      "amount": 2974020,
+      "description": "וייבר לאב בע\"מ",
+      "source": "hapoalim",
+      "type": "income",
+      "categoryId": "income",
+      "categoryManual": false
+    }
+  ]
+}

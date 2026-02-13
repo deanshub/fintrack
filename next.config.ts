@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  serverExternalPackages: ["pdf-parse", "pdfjs-dist"],
   turbopack: {
     resolveAlias: {
       "tw-animate-css": "tw-animate-css/dist/tw-animate.css",

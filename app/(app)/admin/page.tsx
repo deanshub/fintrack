@@ -29,7 +29,12 @@ export default function AdminPage() {
       if (!res.ok) {
         toast.error(data.error ?? "Upload failed");
       } else {
-        toast.success("Upload complete");
+        const parts = [`${data.source}: ${data.added} added, ${data.skipped} skipped`];
+        if (data.warnings?.length) {
+          parts.push(`${data.warnings.length} warning(s)`);
+        }
+        toast.success(parts.join(" | "));
+        if (fileInputRef.current) fileInputRef.current.value = "";
       }
     } catch {
       toast.error("Upload failed");
@@ -85,11 +90,11 @@ export default function AdminPage() {
             Upload Transactions
           </CardTitle>
           <CardDescription>
-            Upload a transaction file to import data. File format support is coming soon.
+            Upload a bank statement PDF (Isracard or Bank Hapoalim) to import transactions.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex items-center gap-3">
-          <Input ref={fileInputRef} type="file" className="max-w-xs" />
+          <Input ref={fileInputRef} type="file" accept=".pdf" className="max-w-xs" />
           <Button onClick={handleUpload} disabled={uploading}>
             {uploading ? "Uploading..." : "Upload"}
           </Button>

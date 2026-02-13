@@ -2,10 +2,10 @@ import { rm } from "node:fs/promises";
 import { join } from "node:path";
 import { NextResponse } from "next/server";
 import { writeJsonFile, writeTransactions } from "@/lib/data";
-import { generateMockData } from "@/lib/seed";
+import { generateSeedData } from "@/lib/seed";
 
 export async function POST() {
-  const { transactionsByMonth, categories, budgets } = generateMockData();
+  const { transactionsByMonth, categories, budgets } = generateSeedData();
 
   // Remove old single-file transactions if it exists
   try {
