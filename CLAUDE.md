@@ -19,6 +19,9 @@
 - Tailwind CSS v4. Theme is defined via CSS variables in `app/globals.css`.
 - Use the `cn()` helper from `@/lib/utils` for conditional/merged classes.
 
+## Dates
+- Use `date-fns` for all date manipulation (parsing, formatting, arithmetic). No manual `new Date()` string wrangling.
+
 ## Language
 - TypeScript in strict mode.
 

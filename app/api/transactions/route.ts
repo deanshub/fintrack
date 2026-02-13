@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { autoCategorize } from "@/lib/categorize";
-import { readJsonFile, writeJsonFile } from "@/lib/data";
+import { readAllTransactions, readJsonFile, readTransactions, writeTransactions } from "@/lib/data";
 import { computeTransactionId } from "@/lib/hash";
 import type { Category, Transaction } from "@/lib/types";
 
@@ -9,11 +9,14 @@ export async function GET(request: NextRequest) {
   const month = searchParams.get("month");
   const category = searchParams.get("category");
 
-  let transactions = await readJsonFile<Transaction[]>("transactions.json");
+  let transactions: Transaction[];
 
   if (month) {
-    transactions = transactions.filter((t) => t.date.startsWith(month));
+    transactions = await readTransactions(month);
+  } else {
+    transactions = await readAllTransactions();
   }
+
   if (category) {
     transactions = transactions.filter((t) => t.categoryId === category);
   }
@@ -29,15 +32,27 @@ export async function POST(request: NextRequest) {
     ? body
     : [body];
 
-  const existing = await readJsonFile<Transaction[]>("transactions.json");
-  const existingIds = new Set(existing.map((t) => t.id));
   const categories = await readJsonFile<Category[]>("categories.json");
+
+  const byMonth = new Map<string, Transaction[]>();
+
+  for (const tx of incoming) {
+    const month = tx.date.slice(0, 7);
+    if (!byMonth.has(month)) {
+      byMonth.set(month, await readTransactions(month));
+    }
+  }
 
   let added = 0;
   let skipped = 0;
 
   for (const tx of incoming) {
+    const month = tx.date.slice(0, 7);
+    const existing = byMonth.get(month);
+    if (!existing) continue;
+    const existingIds = new Set(existing.map((t) => t.id));
     const id = computeTransactionId(tx.date, tx.amount, tx.description, tx.source);
+
     if (existingIds.has(id)) {
       skipped++;
       continue;
@@ -52,12 +67,13 @@ export async function POST(request: NextRequest) {
 
     const [categorized] = autoCategorize([newTx], categories);
     existing.push(categorized);
-    existingIds.add(id);
     added++;
   }
 
-  existing.sort((a, b) => b.date.localeCompare(a.date));
-  await writeJsonFile("transactions.json", existing);
+  for (const [month, txs] of byMonth) {
+    txs.sort((a, b) => b.date.localeCompare(a.date));
+    await writeTransactions(month, txs);
+  }
 
   return NextResponse.json({ added, skipped });
 }

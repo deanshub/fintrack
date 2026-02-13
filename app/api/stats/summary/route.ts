@@ -1,6 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { readJsonFile } from "@/lib/data";
-import type { Transaction } from "@/lib/types";
+import { readTransactions } from "@/lib/data";
 
 export async function GET(request: NextRequest) {
   const month = request.nextUrl.searchParams.get("month");
@@ -8,14 +7,13 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "month parameter required" }, { status: 400 });
   }
 
-  const transactions = await readJsonFile<Transaction[]>("transactions.json");
-  const filtered = transactions.filter((t) => t.date.startsWith(month));
+  const transactions = await readTransactions(month);
 
   let income = 0;
   let expenses = 0;
   const byCategory: Record<string, number> = {};
 
-  for (const tx of filtered) {
+  for (const tx of transactions) {
     if (tx.type === "income") {
       income += tx.amount;
     } else {

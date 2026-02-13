@@ -1,16 +1,32 @@
 import { NextResponse } from "next/server";
 import { autoCategorize } from "@/lib/categorize";
-import { readJsonFile, writeJsonFile } from "@/lib/data";
-import type { Category, Transaction } from "@/lib/types";
+import {
+  listTransactionMonths,
+  readJsonFile,
+  readTransactions,
+  writeTransactions,
+} from "@/lib/data";
+import type { Category } from "@/lib/types";
 
 export async function POST() {
-  const transactions = await readJsonFile<Transaction[]>("transactions.json");
   const categories = await readJsonFile<Category[]>("categories.json");
+  const months = await listTransactionMonths();
 
-  const updated = autoCategorize(transactions, categories);
-  await writeJsonFile("transactions.json", updated);
+  let changed = 0;
 
-  const changed = updated.filter((tx, i) => tx.categoryId !== transactions[i].categoryId).length;
+  for (const month of months) {
+    const transactions = await readTransactions(month);
+    const updated = autoCategorize(transactions, categories);
+
+    const monthChanged = updated.filter(
+      (tx, i) => tx.categoryId !== transactions[i].categoryId,
+    ).length;
+
+    if (monthChanged > 0) {
+      await writeTransactions(month, updated);
+      changed += monthChanged;
+    }
+  }
 
   return NextResponse.json({ updated: changed });
 }

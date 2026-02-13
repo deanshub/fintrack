@@ -1,22 +1,26 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { readJsonFile, writeJsonFile } from "@/lib/data";
-import type { Transaction } from "@/lib/types";
+import { listTransactionMonths, readTransactions, writeTransactions } from "@/lib/data";
 
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const body = await request.json();
-  const transactions = await readJsonFile<Transaction[]>("transactions.json");
 
-  const index = transactions.findIndex((t) => t.id === id);
-  if (index === -1) {
-    return NextResponse.json({ error: "Transaction not found" }, { status: 404 });
+  const months = await listTransactionMonths();
+
+  for (const month of months) {
+    const transactions = await readTransactions(month);
+    const index = transactions.findIndex((t) => t.id === id);
+
+    if (index !== -1) {
+      if (body.categoryId !== undefined) {
+        transactions[index].categoryId = body.categoryId;
+        transactions[index].categoryManual = true;
+      }
+
+      await writeTransactions(month, transactions);
+      return NextResponse.json(transactions[index]);
+    }
   }
 
-  if (body.categoryId !== undefined) {
-    transactions[index].categoryId = body.categoryId;
-    transactions[index].categoryManual = true;
-  }
-
-  await writeJsonFile("transactions.json", transactions);
-  return NextResponse.json(transactions[index]);
+  return NextResponse.json({ error: "Transaction not found" }, { status: 404 });
 }

@@ -2,6 +2,7 @@ import { withSerwist } from "@serwist/turbopack";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   turbopack: {
     resolveAlias: {
       "tw-animate-css": "tw-animate-css/dist/tw-animate.css",

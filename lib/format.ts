@@ -1,10 +1,12 @@
+import { format, parse } from "date-fns";
+
 export function formatCurrency(agorot: number): string {
   const shekel = agorot / 100;
   return `₪${shekel.toLocaleString("he-IL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 export function formatDate(dateStr: string): string {
-  const date = new Date(dateStr);
+  const date = parse(dateStr, "yyyy-MM-dd", new Date());
   return date.toLocaleDateString("he-IL", {
     day: "numeric",
     month: "short",
@@ -13,12 +15,10 @@ export function formatDate(dateStr: string): string {
 }
 
 export function formatMonth(monthStr: string): string {
-  const [year, month] = monthStr.split("-");
-  const date = new Date(Number(year), Number(month) - 1);
-  return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  const date = parse(monthStr, "yyyy-MM", new Date());
+  return format(date, "MMMM yyyy");
 }
 
 export function getCurrentMonth(): string {
-  const now = new Date();
-  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+  return format(new Date(), "yyyy-MM");
 }

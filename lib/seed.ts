@@ -1,3 +1,4 @@
+import { format, getDaysInMonth, parse, subMonths } from "date-fns";
 import { autoCategorize } from "./categorize";
 import { computeTransactionId } from "./hash";
 import type { Budget, Category, Transaction } from "./types";
@@ -191,22 +192,21 @@ function randomAmount(range: [number, number]): number {
 }
 
 function randomDay(month: string): string {
-  const [year, m] = month.split("-").map(Number);
-  const daysInMonth = new Date(year, m, 0).getDate();
-  const day = randomInt(1, daysInMonth);
+  const date = parse(month, "yyyy-MM", new Date());
+  const days = getDaysInMonth(date);
+  const day = randomInt(1, days);
   return `${month}-${String(day).padStart(2, "0")}`;
 }
 
 export function generateMockData(): {
-  transactions: Transaction[];
+  transactionsByMonth: Map<string, Transaction[]>;
   categories: Category[];
   budgets: Budget[];
 } {
   const now = new Date();
   const months: string[] = [];
   for (let i = 3; i >= 0; i--) {
-    const d = new Date(now.getFullYear(), now.getMonth() - i);
-    months.push(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`);
+    months.push(format(subMonths(now, i), "yyyy-MM"));
   }
   const rawTransactions: Omit<Transaction, "id" | "categoryId" | "categoryManual">[] = [];
 
@@ -236,7 +236,18 @@ export function generateMockData(): {
 
   const categorized = autoCategorize(transactions, CATEGORIES);
 
-  categorized.sort((a, b) => b.date.localeCompare(a.date));
+  const transactionsByMonth = new Map<string, Transaction[]>();
+  for (const tx of categorized) {
+    const month = tx.date.slice(0, 7);
+    if (!transactionsByMonth.has(month)) {
+      transactionsByMonth.set(month, []);
+    }
+    transactionsByMonth.get(month)?.push(tx);
+  }
+
+  for (const [, txs] of transactionsByMonth) {
+    txs.sort((a, b) => b.date.localeCompare(a.date));
+  }
 
   const budgets: Budget[] = months.map((month) => ({
     month,
@@ -254,5 +265,5 @@ export function generateMockData(): {
     },
   }));
 
-  return { transactions: categorized, categories: CATEGORIES, budgets };
+  return { transactionsByMonth, categories: CATEGORIES, budgets };
 }

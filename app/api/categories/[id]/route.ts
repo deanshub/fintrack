@@ -1,6 +1,12 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { readJsonFile, writeJsonFile } from "@/lib/data";
-import type { Category, Transaction } from "@/lib/types";
+import {
+  listTransactionMonths,
+  readJsonFile,
+  readTransactions,
+  writeJsonFile,
+  writeTransactions,
+} from "@/lib/data";
+import type { Category } from "@/lib/types";
 
 export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -39,11 +45,21 @@ export async function DELETE(
   categories.splice(index, 1);
   await writeJsonFile("categories.json", categories);
 
-  const transactions = await readJsonFile<Transaction[]>("transactions.json");
-  const updated = transactions.map((t) =>
-    t.categoryId === id ? { ...t, categoryId: null, categoryManual: false } : t,
-  );
-  await writeJsonFile("transactions.json", updated);
+  const months = await listTransactionMonths();
+  for (const month of months) {
+    const transactions = await readTransactions(month);
+    let modified = false;
+    const updated = transactions.map((t) => {
+      if (t.categoryId === id) {
+        modified = true;
+        return { ...t, categoryId: null, categoryManual: false };
+      }
+      return t;
+    });
+    if (modified) {
+      await writeTransactions(month, updated);
+    }
+  }
 
   return NextResponse.json({ deleted: id });
 }

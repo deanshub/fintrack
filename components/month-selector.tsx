@@ -1,5 +1,6 @@
 "use client";
 
+import { addMonths, format, parse } from "date-fns";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatMonth } from "@/lib/format";
@@ -12,9 +13,8 @@ export function MonthSelector({
   onChange: (month: string) => void;
 }) {
   function shift(delta: number) {
-    const [y, m] = month.split("-").map(Number);
-    const d = new Date(y, m - 1 + delta);
-    const next = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    const date = parse(month, "yyyy-MM", new Date());
+    const next = format(addMonths(date, delta), "yyyy-MM");
     onChange(next);
   }
 

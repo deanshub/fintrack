@@ -1,4 +1,4 @@
-import { ArrowLeftRight, LayoutDashboard, Tag, Target } from "lucide-react";
+import { ArrowLeftRight, LayoutDashboard, Settings, Tag, Target } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -16,6 +16,7 @@ const NAV_ITEMS = [
   { icon: ArrowLeftRight, label: "Transactions", href: "/transactions" },
   { icon: Tag, label: "Categories", href: "/categories" },
   { icon: Target, label: "Budgets", href: "/budgets" },
+  { icon: Settings, label: "Admin", href: "/admin" },
 ];
 
 export function AppSidebar() {
