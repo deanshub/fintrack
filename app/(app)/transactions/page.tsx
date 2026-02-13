@@ -6,7 +6,13 @@ import { Suspense, useCallback, useState } from "react";
 import useSWR from "swr";
 import { MonthSelector } from "@/components/month-selector";
 import { TransactionEditSheet } from "@/components/transaction-edit-sheet";
-import { TransactionTable } from "@/components/transaction-table";
+import {
+  DEFAULT_SORT_DIR,
+  DEFAULT_SORT_KEY,
+  type SortDir,
+  type SortKey,
+  TransactionTable,
+} from "@/components/transaction-table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -49,14 +55,52 @@ function useCategoryParams(): [string[], (categories: string[]) => void] {
   return [categories, setCategories];
 }
 
+const VALID_SORT_KEYS = new Set<SortKey>(["date", "description", "category", "amount"]);
+const VALID_SORT_DIRS = new Set<SortDir>(["asc", "desc"]);
+
+function useSortParams(): [SortKey, SortDir, (key: SortKey, dir: SortDir) => void] {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const rawKey = searchParams.get("sort") as SortKey | null;
+  const rawDir = searchParams.get("dir") as SortDir | null;
+  const sortKey = rawKey && VALID_SORT_KEYS.has(rawKey) ? rawKey : DEFAULT_SORT_KEY;
+  const sortDir = rawDir && VALID_SORT_DIRS.has(rawDir) ? rawDir : DEFAULT_SORT_DIR;
+
+  const setSort = useCallback(
+    (key: SortKey, dir: SortDir) => {
+      const params = new URLSearchParams(searchParams);
+      if (key === DEFAULT_SORT_KEY && dir === DEFAULT_SORT_DIR) {
+        params.delete("sort");
+        params.delete("dir");
+      } else {
+        params.set("sort", key);
+        params.set("dir", dir);
+      }
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    },
+    [searchParams, router, pathname],
+  );
+
+  return [sortKey, sortDir, setSort];
+}
+
 function TransactionsContent({
   month,
   categoryFilter,
   search,
+  sortKey,
+  sortDir,
+  onSortChange,
 }: {
   month: string;
   categoryFilter: string[];
   search: string;
+  sortKey: SortKey;
+  sortDir: SortDir;
+  onSortChange: (key: SortKey, dir: SortDir) => void;
 }) {
   const catParam = categoryFilter.length > 0 ? `&category=${categoryFilter.join(",")}` : "";
   const { data: transactions } = useSWR<Transaction[]>(
@@ -73,7 +117,14 @@ function TransactionsContent({
 
   return (
     <>
-      <TransactionTable transactions={filtered} categories={categories} onRowClick={setEditing} />
+      <TransactionTable
+        transactions={filtered}
+        categories={categories}
+        onRowClick={setEditing}
+        sortKey={sortKey}
+        sortDir={sortDir}
+        onSortChange={onSortChange}
+      />
       <TransactionEditSheet
         transaction={editing}
         categories={categories}
@@ -86,6 +137,7 @@ function TransactionsContent({
 export default function TransactionsPage() {
   const [month, setMonth] = useMonthParam();
   const [categoryFilter, setCategoryFilter] = useCategoryParams();
+  const [sortKey, sortDir, setSort] = useSortParams();
   const [search, setSearch] = useState("");
 
   return (
@@ -106,7 +158,14 @@ export default function TransactionsPage() {
         />
       </div>
       <Suspense fallback={<Skeleton className="h-96" />}>
-        <TransactionsContent month={month} categoryFilter={categoryFilter} search={search} />
+        <TransactionsContent
+          month={month}
+          categoryFilter={categoryFilter}
+          search={search}
+          sortKey={sortKey}
+          sortDir={sortDir}
+          onSortChange={setSort}
+        />
       </Suspense>
     </div>
   );

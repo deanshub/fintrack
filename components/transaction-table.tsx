@@ -15,26 +15,48 @@ import {
 import { formatCurrency, formatDate } from "@/lib/format";
 import type { Category, Transaction } from "@/lib/types";
 
-type SortKey = "date" | "description" | "category" | "amount";
-type SortDir = "asc" | "desc";
+export type SortKey = "date" | "description" | "category" | "amount";
+export type SortDir = "asc" | "desc";
+
+export const DEFAULT_SORT_KEY: SortKey = "date";
+export const DEFAULT_SORT_DIR: SortDir = "asc";
 
 interface TransactionTableProps {
   transactions: Transaction[];
   categories: Category[];
   onRowClick?: (transaction: Transaction) => void;
+  sortKey?: SortKey;
+  sortDir?: SortDir;
+  onSortChange?: (key: SortKey, dir: SortDir) => void;
 }
 
-export function TransactionTable({ transactions, categories, onRowClick }: TransactionTableProps) {
+export function TransactionTable({
+  transactions,
+  categories,
+  onRowClick,
+  sortKey: controlledKey,
+  sortDir: controlledDir,
+  onSortChange,
+}: TransactionTableProps) {
   const catMap = useMemo(() => new Map(categories.map((c) => [c.id, c])), [categories]);
-  const [sortKey, setSortKey] = useState<SortKey>("date");
-  const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const [internalKey, setInternalKey] = useState<SortKey>(DEFAULT_SORT_KEY);
+  const [internalDir, setInternalDir] = useState<SortDir>(DEFAULT_SORT_DIR);
+
+  const sortKey = controlledKey ?? internalKey;
+  const sortDir = controlledDir ?? internalDir;
 
   function handleSort(key: SortKey) {
+    let nextDir: SortDir;
     if (sortKey === key) {
-      setSortDir(sortDir === "asc" ? "desc" : "asc");
+      nextDir = sortDir === "asc" ? "desc" : "asc";
     } else {
-      setSortKey(key);
-      setSortDir(key === "amount" ? "desc" : "asc");
+      nextDir = key === "amount" ? "desc" : "asc";
+    }
+    if (onSortChange) {
+      onSortChange(key, nextDir);
+    } else {
+      setInternalKey(key);
+      setInternalDir(nextDir);
     }
   }
 
