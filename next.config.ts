@@ -7,8 +7,7 @@ const nextConfig: NextConfig = {
     },
   },
   webpack: (config) => {
-    config.resolve.alias["tw-animate-css"] =
-      "tw-animate-css/dist/tw-animate.css";
+    config.resolve.alias["tw-animate-css"] = "tw-animate-css/dist/tw-animate.css";
     return config;
   },
 };
