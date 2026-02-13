@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { SerwistProvider } from "@/components/serwist-provider";
 import { SWRProvider } from "@/components/swr-provider";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -50,7 +52,10 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ErrorBoundary>
           <SerwistProvider swUrl="/serwist/sw.js">
-            <SWRProvider>{children}</SWRProvider>
+            <SWRProvider>
+              <TooltipProvider>{children}</TooltipProvider>
+              <Toaster />
+            </SWRProvider>
           </SerwistProvider>
         </ErrorBoundary>
       </body>
