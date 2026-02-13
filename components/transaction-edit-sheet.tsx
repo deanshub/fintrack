@@ -1,8 +1,12 @@
 "use client";
 
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useSWRConfig } from "swr";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -34,10 +38,14 @@ export function TransactionEditSheet({
   onClose,
 }: TransactionEditSheetProps) {
   const { mutate } = useSWRConfig();
+  const searchParams = useSearchParams();
   const [categoryId, setCategoryId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
   const currentCategoryId = categoryId ?? transaction?.categoryId ?? "";
+  const currentCat = currentCategoryId ? categories.find((c) => c.id === currentCategoryId) : null;
+  const month = searchParams.get("month");
+  const catQs = month ? `?month=${month}` : "";
 
   async function handleSave() {
     if (!transaction) return;
@@ -65,6 +73,25 @@ export function TransactionEditSheet({
         </SheetHeader>
         {transaction && (
           <div className="space-y-4 px-4">
+            {currentCat && (
+              <Link
+                href={`/categories/${currentCat.id}${catQs}`}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Badge
+                  variant="outline"
+                  className="gap-1.5"
+                  style={{ borderColor: currentCat.color, color: currentCat.color }}
+                >
+                  <span
+                    className="inline-block h-2 w-2 rounded-full"
+                    style={{ backgroundColor: currentCat.color }}
+                  />
+                  {currentCat.name}
+                </Badge>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </Link>
+            )}
             <div>
               <Label className="text-muted-foreground">Description</Label>
               <p className="font-medium">{transaction.description}</p>
