@@ -94,7 +94,15 @@ export function TransactionEditSheet({
             )}
             <div>
               <Label className="text-muted-foreground">Description</Label>
-              <p className="font-medium">{transaction.description}</p>
+              <a
+                href={`https://www.google.com/search?q=${encodeURIComponent(transaction.description)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 font-medium hover:underline"
+              >
+                {transaction.description}
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+              </a>
             </div>
             <div className="flex gap-4">
               <div>
