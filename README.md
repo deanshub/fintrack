@@ -52,11 +52,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - fintrack-data:/app/data
+      - ./data:/app/data
     restart: unless-stopped
-
-volumes:
-  fintrack-data:
 ```
 
 ```bash
