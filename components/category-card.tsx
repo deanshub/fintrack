@@ -2,6 +2,7 @@
 
 import * as Icons from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatCurrency } from "@/lib/format";
@@ -13,6 +14,9 @@ interface CategoryCardProps {
 }
 
 export function CategoryCard({ category, spent }: CategoryCardProps) {
+  const searchParams = useSearchParams();
+  const month = searchParams.get("month");
+  const qs = month ? `?month=${month}` : "";
   const Icon =
     (
       Icons as unknown as Record<
@@ -22,7 +26,7 @@ export function CategoryCard({ category, spent }: CategoryCardProps) {
     )[category.icon] ?? Icons.Tag;
 
   return (
-    <Link href={`/categories/${category.id}`}>
+    <Link href={`/categories/${category.id}${qs}`}>
       <Card className="transition-colors hover:bg-muted/50">
         <CardHeader className="flex flex-row items-center gap-3 space-y-0 pb-2">
           <div
