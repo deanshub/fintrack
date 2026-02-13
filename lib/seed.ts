@@ -132,6 +132,13 @@ const CATEGORIES: Category[] = [
       { keyword: "google storage" },
     ],
   },
+  {
+    id: "other",
+    name: "Other",
+    icon: "CircleEllipsis",
+    color: "var(--muted-foreground)",
+    rules: [],
+  },
 ];
 
 interface MockEntry {

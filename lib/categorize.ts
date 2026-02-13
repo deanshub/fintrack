@@ -13,6 +13,6 @@ export function autoCategorize(transactions: Transaction[], categories: Category
       }
     }
 
-    return { ...tx, categoryId: null };
+    return { ...tx, categoryId: "other" };
   });
 }
