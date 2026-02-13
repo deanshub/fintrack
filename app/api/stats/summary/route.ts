@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { readTransactions } from "@/lib/data";
+import { IGNORE_CATEGORY_ID } from "@/lib/types";
 
 export async function GET(request: NextRequest) {
   const month = request.nextUrl.searchParams.get("month");
@@ -14,6 +15,7 @@ export async function GET(request: NextRequest) {
   const byCategory: Record<string, number> = {};
 
   for (const tx of transactions) {
+    if (tx.categoryId === IGNORE_CATEGORY_ID) continue;
     if (tx.type === "income") {
       income += tx.amount;
     } else {

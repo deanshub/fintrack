@@ -8,7 +8,7 @@ import { CategoryFormDialog } from "@/components/category-form-dialog";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getCurrentMonth } from "@/lib/format";
-import type { Category } from "@/lib/types";
+import { type Category, IGNORE_CATEGORY_ID } from "@/lib/types";
 
 function CategoriesGrid() {
   const month = getCurrentMonth();
@@ -19,9 +19,14 @@ function CategoriesGrid() {
 
   if (!categories || !summary) return null;
 
+  const ignore = categories.find((c) => c.id === IGNORE_CATEGORY_ID);
+  const other = categories.find((c) => c.id === "other");
+  const rest = categories.filter((c) => c.id !== IGNORE_CATEGORY_ID && c.id !== "other");
+  const sorted = [...(ignore ? [ignore] : []), ...rest, ...(other ? [other] : [])];
+
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {categories.map((cat) => (
+      {sorted.map((cat) => (
         <CategoryCard key={cat.id} category={cat} spent={summary.byCategory[cat.id] ?? 0} />
       ))}
     </div>

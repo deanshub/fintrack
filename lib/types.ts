@@ -1,5 +1,7 @@
 export type TransactionType = "income" | "expense";
 
+export const IGNORE_CATEGORY_ID = "ignore";
+
 export interface Transaction {
   id: string;
   date: string;

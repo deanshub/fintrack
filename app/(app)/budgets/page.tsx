@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { formatCurrency, getCurrentMonth } from "@/lib/format";
-import type { Budget, Category } from "@/lib/types";
+import { type Budget, type Category, IGNORE_CATEGORY_ID } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 interface EditTarget {
@@ -34,7 +34,7 @@ function BudgetContent({ month }: { month: string }) {
   const globalPct = globalLimit ? Math.min((summary.expenses / globalLimit) * 100, 100) : 0;
 
   const categoryBudgets = categories
-    .filter((c) => c.id !== "income")
+    .filter((c) => c.id !== "income" && c.id !== IGNORE_CATEGORY_ID)
     .map((cat) => {
       const limit = budget?.categoryLimits[cat.id] ?? null;
       const spent = summary.byCategory[cat.id] ?? 0;

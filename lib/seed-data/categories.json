@@ -192,6 +192,15 @@
     ]
   },
   {
+    "id": "ignore",
+    "name": "Ignore",
+    "icon": "EyeOff",
+    "color": "var(--muted-foreground)",
+    "rules": [
+      { "keyword": "ישראכרט בע\"מ" }
+    ]
+  },
+  {
     "id": "other",
     "name": "Other",
     "icon": "CircleEllipsis",

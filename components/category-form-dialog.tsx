@@ -1,5 +1,6 @@
 "use client";
 
+import * as Icons from "lucide-react";
 import { X } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -35,6 +36,9 @@ const ICON_OPTIONS = [
   "Heart",
   "RefreshCw",
   "Wallet",
+  "Shield",
+  "EyeOff",
+  "CircleEllipsis",
   "Tag",
   "CreditCard",
   "BookOpen",
@@ -48,7 +52,15 @@ const COLOR_OPTIONS = [
   "var(--chart-3)",
   "var(--chart-4)",
   "var(--chart-5)",
+  "var(--muted-foreground)",
 ];
+
+type IconComponent = React.ComponentType<{ className?: string }>;
+const IconMap = Icons as unknown as Record<string, IconComponent>;
+
+function getIcon(name: string): IconComponent {
+  return IconMap[name] ?? Icons.Tag;
+}
 
 interface CategoryFormDialogProps {
   open: boolean;
@@ -144,11 +156,17 @@ export function CategoryFormDialog({ open, onClose, category }: CategoryFormDial
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {ICON_OPTIONS.map((i) => (
-                    <SelectItem key={i} value={i}>
-                      {i}
-                    </SelectItem>
-                  ))}
+                  {ICON_OPTIONS.map((i) => {
+                    const ItemIcon = getIcon(i);
+                    return (
+                      <SelectItem key={i} value={i}>
+                        <span className="flex items-center gap-2">
+                          <ItemIcon className="h-4 w-4" />
+                          {i}
+                        </span>
+                      </SelectItem>
+                    );
+                  })}
                 </SelectContent>
               </Select>
             </div>
@@ -159,9 +177,17 @@ export function CategoryFormDialog({ open, onClose, category }: CategoryFormDial
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {COLOR_OPTIONS.map((c, i) => (
+                  {COLOR_OPTIONS.map((c) => (
                     <SelectItem key={c} value={c}>
-                      Chart {i + 1}
+                      <span className="flex items-center gap-2">
+                        <span
+                          className="inline-block h-3 w-3 rounded-full"
+                          style={{ backgroundColor: c }}
+                        />
+                        {c === "var(--muted-foreground)"
+                          ? "Muted"
+                          : c.replace("var(--chart-", "Chart ").replace(")", "")}
+                      </span>
                     </SelectItem>
                   ))}
                 </SelectContent>
