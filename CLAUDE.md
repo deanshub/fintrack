@@ -9,7 +9,10 @@
 - Each custom (non-shadcn) component lives in its own file under `components/`.
 
 ## Data Fetching
-- Use SWR (`import useSWR from "swr"`) for client-side data fetching.
+- Use SWR (`import useSWR from "swr"`) for client-side data fetching. SWR is configured globally with `suspense: true` and a default JSON fetcher via `SWRProvider` in the root layout.
+- Prefer React Suspense boundaries (`<Suspense fallback={...}>`) for loading states instead of manual `isLoading` checks.
+- Wrap data-fetching components with React Error Boundaries for error fallback UI.
+- Use Next.js `loading.tsx` and `error.tsx` files in route segments for route-level loading and error states.
 
 ## Styling
 - Tailwind CSS v4. Theme is defined via CSS variables in `app/globals.css`.

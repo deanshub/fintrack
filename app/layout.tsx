@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { SWRProvider } from "@/components/swr-provider";
 import "./globals.css";
 
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SWRProvider>{children}</SWRProvider>
+        <ErrorBoundary>
+          <SWRProvider>{children}</SWRProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );
