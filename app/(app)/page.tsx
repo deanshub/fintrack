@@ -1,14 +1,17 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import useSWR from "swr";
 import { BudgetProgress } from "@/components/budget-progress";
+import { CategoryMultiSelect } from "@/components/category-multi-select";
 import { CategoryPieChart } from "@/components/category-pie-chart";
+import { CategoryTrendChart } from "@/components/category-trend-chart";
 import { MonthSelector } from "@/components/month-selector";
 import { MonthlyTrendChart } from "@/components/monthly-trend-chart";
 import { OverspendAlerts } from "@/components/overspend-alerts";
 import { SummaryCards } from "@/components/summary-cards";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useCategoryTrend } from "@/hooks/use-category-trend";
 import { useMonthParam } from "@/hooks/use-month-param";
 import type { Budget, Category } from "@/lib/types";
 
@@ -22,10 +25,16 @@ function DashboardContent({ month }: { month: string }) {
   const { data: trend } = useSWR<{ month: string; income: number; expenses: number }[]>(
     "/api/stats/trend?months=6",
   );
+  const { data: categoryTrend } = useCategoryTrend();
   const { data: categories } = useSWR<Category[]>("/api/categories");
   const { data: budget } = useSWR<Budget | null>(`/api/budgets?month=${month}`);
+  const [selectedCategoryIds, setSelectedCategoryIds] = useState<string[] | null>(null);
 
-  if (!summary || !trend || !categories) return null;
+  if (!summary || !trend || !categories || !categoryTrend) return null;
+
+  const resolvedSelected =
+    selectedCategoryIds ??
+    categories.filter((c) => c.id !== "ignore" && c.id !== "income").map((c) => c.id);
 
   return (
     <div className="space-y-6">
@@ -44,6 +53,21 @@ function DashboardContent({ month }: { month: string }) {
           spending={summary.byCategory}
           totalExpenses={summary.expenses}
           categories={categories}
+        />
+      </div>
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">Category Over Time</h2>
+          <CategoryMultiSelect
+            categories={categories}
+            selected={resolvedSelected}
+            onChange={setSelectedCategoryIds}
+          />
+        </div>
+        <CategoryTrendChart
+          data={categoryTrend}
+          categories={categories}
+          selectedIds={resolvedSelected}
         />
       </div>
     </div>
