@@ -28,7 +28,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { formatCurrency, formatDate } from "@/lib/format";
 import type { Category, Transaction } from "@/lib/types";
 
-const EXCLUDED_RULE_CATEGORIES = new Set(["income", "ignore", "other"]);
+const EXCLUDED_RULE_CATEGORIES = new Set(["income", "other"]);
 
 interface TransactionEditSheetProps {
   transaction: Transaction | null;

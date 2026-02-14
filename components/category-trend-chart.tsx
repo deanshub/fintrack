@@ -1,5 +1,7 @@
 "use client";
 
+import { format, parse } from "date-fns";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
@@ -28,6 +30,7 @@ export function CategoryTrendChart({
   selectedIds: string[];
 }) {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const router = useRouter();
 
   if (selectedIds.length === 0) {
     return (
@@ -52,6 +55,7 @@ export function CategoryTrendChart({
   const formatted = data.map((d) => {
     const point: Record<string, string | number> = {
       month: d.month.slice(5),
+      fullMonth: d.month,
     };
     for (const id of selectedIds) {
       point[id] = (d.categories[id] ?? 0) / 100;
@@ -63,7 +67,21 @@ export function CategoryTrendChart({
     <Card>
       <CardContent className="pt-6">
         <ChartContainer config={chartConfig} className="h-[300px] w-full">
-          <LineChart data={formatted} accessibilityLayer onMouseLeave={() => setActiveId(null)}>
+          <LineChart
+            data={formatted}
+            accessibilityLayer
+            className="cursor-pointer"
+            onMouseLeave={() => setActiveId(null)}
+            onClick={(state) => {
+              if (!state?.activePayload?.length) return;
+              const point = state.activePayload[0].payload as Record<string, string | number>;
+              const fullMonth = point.fullMonth;
+              const categoryId = activeId ?? selectedIds[0];
+              if (fullMonth) {
+                router.push(`/transactions?month=${fullMonth}&category=${categoryId}`);
+              }
+            }}
+          >
             <CartesianGrid vertical={false} />
             <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
             <YAxis
@@ -74,6 +92,7 @@ export function CategoryTrendChart({
             <ChartTooltip
               content={
                 <ChartTooltipContent
+                  labelFormatter={(label) => format(parse(label, "MM", new Date()), "MMMM")}
                   formatter={(value, name) => {
                     const cat = catMap.get(name as string);
                     const isActive = activeId === name;
@@ -106,6 +125,7 @@ export function CategoryTrendChart({
                 stroke={`var(--color-${id})`}
                 strokeWidth={2}
                 dot={false}
+                activeDot={{ r: 5 }}
                 onMouseEnter={() => setActiveId(id)}
               />
             ))}
