@@ -14,6 +14,11 @@ export function formatDate(dateStr: string): string {
   });
 }
 
+export function formatDateShort(dateStr: string): string {
+  const date = parse(dateStr, "yyyy-MM-dd", new Date());
+  return format(date, "d");
+}
+
 export function formatMonth(monthStr: string): string {
   const date = parse(monthStr, "yyyy-MM", new Date());
   return format(date, "MMMM yyyy");

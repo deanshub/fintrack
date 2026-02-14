@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpDown, MessageSquare } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { formatCurrency, formatDate } from "@/lib/format";
+import { formatCurrency, formatDateShort } from "@/lib/format";
 import type { Category, Transaction } from "@/lib/types";
 
 export type SortKey = "date" | "description" | "category" | "amount";
@@ -83,6 +83,16 @@ export function TransactionTable({
     return copy;
   }, [transactions, sortKey, sortDir, catMap]);
 
+  const totals = useMemo(() => {
+    let income = 0;
+    let expense = 0;
+    for (const tx of transactions) {
+      if (tx.type === "income") income += tx.amount;
+      else expense += tx.amount;
+    }
+    return { income, expense, net: income - expense, count: transactions.length };
+  }, [transactions]);
+
   function SortIcon({ column }: { column: SortKey }) {
     if (sortKey !== column) return <ArrowUpDown className="h-3.5 w-3.5" />;
     return sortDir === "asc" ? (
@@ -99,7 +109,7 @@ export function TransactionTable({
           <TableRow>
             {(
               [
-                { key: "date", label: "Date", align: "" },
+                { key: "date", label: "", align: "" },
                 { key: "description", label: "Description", align: "" },
                 { key: "category", label: "Category", align: "" },
                 { key: "amount", label: "Amount", align: "text-right" },
@@ -135,8 +145,17 @@ export function TransactionTable({
                   className={onRowClick ? "cursor-pointer" : undefined}
                   onClick={() => onRowClick?.(tx)}
                 >
-                  <TableCell className="whitespace-nowrap">{formatDate(tx.date)}</TableCell>
-                  <TableCell>{tx.description}</TableCell>
+                  <TableCell className="whitespace-nowrap">{formatDateShort(tx.date)}</TableCell>
+                  <TableCell className="max-w-[200px]">
+                    <span className="flex items-center gap-1.5">
+                      <span className="truncate" title={tx.description}>
+                        {tx.description}
+                      </span>
+                      {tx.note && (
+                        <MessageSquare className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                      )}
+                    </span>
+                  </TableCell>
                   <TableCell>
                     {cat ? (
                       <Badge
@@ -168,6 +187,19 @@ export function TransactionTable({
             })
           )}
         </TableBody>
+        {sorted.length > 0 && (
+          <tfoot>
+            <TableRow className="border-t-2 font-semibold">
+              <TableCell colSpan={3}>Total ({totals.count} transactions)</TableCell>
+              <TableCell
+                className={`text-right whitespace-nowrap ${totals.net >= 0 ? "text-emerald-600" : "text-red-600"}`}
+              >
+                {totals.net >= 0 ? "+" : "-"}
+                {formatCurrency(Math.abs(totals.net))}
+              </TableCell>
+            </TableRow>
+          </tfoot>
+        )}
       </Table>
     </div>
   );

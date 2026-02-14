@@ -23,6 +23,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { Textarea } from "@/components/ui/textarea";
 import { formatCurrency, formatDate } from "@/lib/format";
 import type { Category, Transaction } from "@/lib/types";
 
@@ -40,10 +41,12 @@ export function TransactionEditSheet({
   const { mutate } = useSWRConfig();
   const searchParams = useSearchParams();
   const [categoryId, setCategoryId] = useState<string | null>(null);
+  const [note, setNote] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
   const currentCategoryId = categoryId ?? transaction?.categoryId ?? "";
   const currentCat = currentCategoryId ? categories.find((c) => c.id === currentCategoryId) : null;
+  const currentNote = note ?? transaction?.note ?? "";
   const month = searchParams.get("month");
   const catQs = month ? `?month=${month}` : "";
 
@@ -54,10 +57,13 @@ export function TransactionEditSheet({
       await fetch(`/api/transactions/${transaction.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ categoryId: currentCategoryId || null }),
+        body: JSON.stringify({
+          categoryId: currentCategoryId || null,
+          note: currentNote,
+        }),
       });
       await mutate((key: string) => typeof key === "string" && key.startsWith("/api/"));
-      toast.success("Category updated");
+      toast.success("Transaction updated");
       onClose();
     } finally {
       setSaving(false);
@@ -65,7 +71,16 @@ export function TransactionEditSheet({
   }
 
   return (
-    <Sheet open={!!transaction} onOpenChange={(open) => !open && onClose()}>
+    <Sheet
+      open={!!transaction}
+      onOpenChange={(open) => {
+        if (!open) {
+          setCategoryId(null);
+          setNote(null);
+          onClose();
+        }
+      }}
+    >
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Edit Transaction</SheetTitle>
@@ -128,6 +143,15 @@ export function TransactionEditSheet({
                   ))}
                 </SelectContent>
               </Select>
+            </div>
+            <div className="space-y-2">
+              <Label>Note</Label>
+              <Textarea
+                placeholder="Add a personal note..."
+                value={currentNote}
+                onChange={(e) => setNote(e.target.value)}
+                rows={3}
+              />
             </div>
             <Button onClick={handleSave} disabled={saving} className="w-full">
               {saving ? "Saving..." : "Save"}

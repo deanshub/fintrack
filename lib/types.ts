@@ -11,6 +11,7 @@ export interface Transaction {
   type: TransactionType;
   categoryId: string | null;
   categoryManual: boolean;
+  note?: string;
 }
 
 export interface CategoryRule {

@@ -17,6 +17,10 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
         transactions[index].categoryManual = true;
       }
 
+      if (body.note !== undefined) {
+        transactions[index].note = body.note || undefined;
+      }
+
       await writeTransactions(month, transactions);
       return NextResponse.json(transactions[index]);
     }

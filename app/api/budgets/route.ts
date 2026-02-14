@@ -7,8 +7,13 @@ export async function GET(request: NextRequest) {
   const budgets = await readJsonFile<Budget[]>("budgets.json");
 
   if (month) {
-    const budget = budgets.find((b) => b.month === month);
-    return NextResponse.json(budget ?? null);
+    const exact = budgets.find((b) => b.month === month);
+    if (exact) return NextResponse.json(exact);
+    // Fall back to the nearest budget (prefer before, then after)
+    const sorted = [...budgets].sort((a, b) => b.month.localeCompare(a.month));
+    const before = sorted.find((b) => b.month <= month);
+    const after = sorted.findLast((b) => b.month >= month);
+    return NextResponse.json(before ?? after ?? null);
   }
 
   return NextResponse.json(budgets);

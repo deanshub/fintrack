@@ -5,8 +5,10 @@ import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { formatCurrency } from "@/lib/format";
-import type { Budget, Category } from "@/lib/types";
+import { type Budget, type Category, IGNORE_CATEGORY_ID } from "@/lib/types";
 import { cn } from "@/lib/utils";
+
+const EXCLUDED_IDS = new Set(["income", IGNORE_CATEGORY_ID, "other"]);
 
 interface BudgetProgressProps {
   budget: Budget | null;
@@ -15,18 +17,18 @@ interface BudgetProgressProps {
   categories: Category[];
 }
 
-function ProgressBar({
+function CategoryRow({
   spent,
   limit,
   label,
   color,
 }: {
   spent: number;
-  limit: number;
+  limit: number | null;
   label: string;
   color?: string;
 }) {
-  const pct = limit > 0 ? Math.min((spent / limit) * 100, 100) : 0;
+  const pct = limit && limit > 0 ? Math.min((spent / limit) * 100, 100) : 0;
 
   return (
     <div className="space-y-1">
@@ -41,7 +43,7 @@ function ProgressBar({
           {label}
         </span>
         <span className="shrink-0 text-xs text-muted-foreground">
-          {formatCurrency(spent)} / {formatCurrency(limit)}
+          {formatCurrency(spent)} / {formatCurrency(limit ?? 0)}
         </span>
       </div>
       <Progress
@@ -76,29 +78,16 @@ export function BudgetProgress({
     return `/transactions?${qs}`;
   }
 
-  if (!budget) {
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Budget</CardTitle>
-        </CardHeader>
-        <CardContent className="text-muted-foreground">No budget set for this month</CardContent>
-      </Card>
-    );
-  }
-
-  const categoryBudgets = Object.entries(budget.categoryLimits)
-    .map(([catId, limit]) => {
-      const cat = categories.find((c) => c.id === catId);
-      return {
-        id: catId,
-        name: cat?.name ?? catId,
-        color: cat?.color,
-        spent: spending[catId] ?? 0,
-        limit,
-      };
-    })
-    .sort((a, b) => b.limit - a.limit);
+  const rows = categories
+    .filter((c) => !EXCLUDED_IDS.has(c.id))
+    .map((cat) => ({
+      id: cat.id,
+      name: cat.name,
+      color: cat.color,
+      spent: spending[cat.id] ?? 0,
+      limit: budget?.categoryLimits[cat.id] ?? null,
+    }))
+    .sort((a, b) => b.spent - a.spent);
 
   return (
     <Card>
@@ -106,16 +95,16 @@ export function BudgetProgress({
         <CardTitle>Budget</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        {budget.globalLimit != null && (
-          <ProgressBar spent={totalExpenses} limit={budget.globalLimit} label="Overall" />
+        {budget?.globalLimit != null && (
+          <CategoryRow spent={totalExpenses} limit={budget.globalLimit} label="Overall" />
         )}
-        {categoryBudgets.map((cb) => (
+        {rows.map((row) => (
           <Link
-            key={cb.id}
-            href={txHref(cb.id)}
+            key={row.id}
+            href={txHref(row.id)}
             className="block rounded-md -mx-2 px-2 py-1 transition-colors hover:bg-muted/50"
           >
-            <ProgressBar spent={cb.spent} limit={cb.limit} label={cb.name} color={cb.color} />
+            <CategoryRow spent={row.spent} limit={row.limit} label={row.name} color={row.color} />
           </Link>
         ))}
       </CardContent>

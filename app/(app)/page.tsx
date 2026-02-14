@@ -6,6 +6,7 @@ import { BudgetProgress } from "@/components/budget-progress";
 import { CategoryPieChart } from "@/components/category-pie-chart";
 import { MonthSelector } from "@/components/month-selector";
 import { MonthlyTrendChart } from "@/components/monthly-trend-chart";
+import { OverspendAlerts } from "@/components/overspend-alerts";
 import { SummaryCards } from "@/components/summary-cards";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useMonthParam } from "@/hooks/use-month-param";
@@ -28,6 +29,12 @@ function DashboardContent({ month }: { month: string }) {
 
   return (
     <div className="space-y-6">
+      <OverspendAlerts
+        budget={budget ?? null}
+        spending={summary.byCategory}
+        totalExpenses={summary.expenses}
+        categories={categories}
+      />
       <SummaryCards data={summary} />
       <MonthlyTrendChart data={trend} />
       <div className="grid gap-6 lg:grid-cols-2">
@@ -48,7 +55,7 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <MonthSelector month={month} onChange={setMonth} />
       </div>
