@@ -6,6 +6,7 @@ import { Suspense, useState } from "react";
 import { toast } from "sonner";
 import useSWR, { useSWRConfig } from "swr";
 import { CategoryFormDialog } from "@/components/category-form-dialog";
+import { ConfirmDialog } from "@/components/confirm-dialog";
 import { MonthSelector } from "@/components/month-selector";
 import { TransactionEditSheet } from "@/components/transaction-edit-sheet";
 import { TransactionTable } from "@/components/transaction-table";
@@ -50,7 +51,6 @@ export default function CategoryDetailPage() {
   const category = categories?.find((c) => c.id === params.id);
 
   async function handleDelete() {
-    if (!confirm("Delete this category?")) return;
     await fetch(`/api/categories/${params.id}`, { method: "DELETE" });
     await mutate((key: string) => typeof key === "string" && key.startsWith("/api/"));
     toast.success("Category deleted");
@@ -68,9 +68,16 @@ export default function CategoryDetailPage() {
               <Button variant="outline" size="icon" onClick={() => setEditOpen(true)}>
                 <Pencil className="h-4 w-4" />
               </Button>
-              <Button variant="outline" size="icon" onClick={handleDelete}>
-                <Trash2 className="h-4 w-4" />
-              </Button>
+              <ConfirmDialog
+                title="Delete category?"
+                description="This will permanently delete the category and uncategorize all its transactions. This action cannot be undone."
+                confirmLabel="Delete"
+                onConfirm={handleDelete}
+              >
+                <Button variant="outline" size="icon">
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              </ConfirmDialog>
             </>
           )}
         </div>

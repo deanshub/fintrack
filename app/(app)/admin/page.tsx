@@ -1,8 +1,9 @@
 "use client";
 
-import { Database, RefreshCw, Upload } from "lucide-react";
+import { Database, RefreshCw, Trash2, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
+import { ConfirmDialog } from "@/components/confirm-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,7 @@ export default function AdminPage() {
   const [uploading, setUploading] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [recategorizing, setRecategorizing] = useState(false);
+  const [clearing, setClearing] = useState(false);
 
   async function handleUpload() {
     const file = fileInputRef.current?.files?.[0];
@@ -79,6 +81,26 @@ export default function AdminPage() {
     }
   }
 
+  async function handleClear() {
+    setClearing(true);
+    try {
+      const res = await fetch("/api/admin/clear", { method: "DELETE" });
+      const data = await res.json();
+      if (!res.ok) {
+        toast.error("Clear failed");
+      } else {
+        const { transactions, categories, budgets } = data.cleared;
+        toast.success(
+          `Cleared ${transactions} transactions, ${categories} categories, ${budgets} budgets`,
+        );
+      }
+    } catch {
+      toast.error("Clear failed");
+    } finally {
+      setClearing(false);
+    }
+  }
+
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold">Admin</h1>
@@ -101,7 +123,7 @@ export default function AdminPage() {
         </CardContent>
       </Card>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-3">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -133,6 +155,30 @@ export default function AdminPage() {
             <Button variant="outline" onClick={handleRecategorize} disabled={recategorizing}>
               {recategorizing ? "Re-categorizing..." : "Re-categorize All"}
             </Button>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Trash2 className="h-5 w-5" />
+              Clear All Data
+            </CardTitle>
+            <CardDescription>
+              Permanently delete all transactions, categories, and budgets.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ConfirmDialog
+              title="Clear all data?"
+              description="This will permanently delete all transactions, categories, and budgets. This action cannot be undone."
+              confirmLabel="Clear All Data"
+              onConfirm={handleClear}
+            >
+              <Button variant="destructive" disabled={clearing}>
+                {clearing ? "Clearing..." : "Clear All Data"}
+              </Button>
+            </ConfirmDialog>
           </CardContent>
         </Card>
       </div>

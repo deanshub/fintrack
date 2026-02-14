@@ -13,6 +13,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 const NAV_ITEMS = [
@@ -24,6 +25,7 @@ const NAV_ITEMS = [
 ];
 
 export function AppSidebar() {
+  const { setOpenMobile } = useSidebar();
   const searchParams = useSearchParams();
   const month = searchParams.get("month");
 
@@ -50,7 +52,7 @@ export function AppSidebar() {
               {NAV_ITEMS.map((item) => (
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton asChild>
-                    <Link href={buildHref(item.href)}>
+                    <Link href={buildHref(item.href)} onClick={() => setOpenMobile(false)}>
                       <item.icon />
                       <span>{item.label}</span>
                     </Link>
