@@ -54,7 +54,7 @@ export default function RootLayout({
           <SerwistProvider swUrl="/serwist/sw.js">
             <SWRProvider>
               <TooltipProvider>{children}</TooltipProvider>
-              <Toaster richColors />
+              <Toaster richColors theme="light" />
             </SWRProvider>
           </SerwistProvider>
         </ErrorBoundary>

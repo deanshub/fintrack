@@ -2,6 +2,7 @@
 
 import { ArrowDown, ArrowUp, ArrowUpDown, MessageSquare } from "lucide-react";
 import { useMemo, useState } from "react";
+import { twMerge } from "tailwind-merge";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +14,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { formatCurrency, formatDateShort } from "@/lib/format";
-import type { Category, Transaction } from "@/lib/types";
+import { type Category, IGNORE_CATEGORY_ID, type Transaction } from "@/lib/types";
 
 export type SortKey = "date" | "description" | "category" | "amount";
 export type SortDir = "asc" | "desc";
@@ -87,6 +88,7 @@ export function TransactionTable({
     let income = 0;
     let expense = 0;
     for (const tx of transactions) {
+      if (tx.categoryId === IGNORE_CATEGORY_ID) continue;
       if (tx.type === "income") income += tx.amount;
       else expense += tx.amount;
     }
@@ -109,10 +111,10 @@ export function TransactionTable({
           <TableRow>
             {(
               [
-                { key: "date", label: "", align: "" },
-                { key: "description", label: "Description", align: "" },
-                { key: "category", label: "Category", align: "" },
-                { key: "amount", label: "Amount", align: "text-right" },
+                { key: "date", label: "Date", align: "", hideLabelMobile: true },
+                { key: "description", label: "Description", align: "", hideLabelMobile: false },
+                { key: "category", label: "Category", align: "", hideLabelMobile: false },
+                { key: "amount", label: "Amount", align: "text-right", hideLabelMobile: false },
               ] as const
             ).map((col) => (
               <TableHead key={col.key} className={col.align}>
@@ -122,7 +124,11 @@ export function TransactionTable({
                   className="-ml-3 h-8"
                   onClick={() => handleSort(col.key)}
                 >
-                  {col.label}
+                  {col.hideLabelMobile ? (
+                    <span className="hidden sm:inline">{col.label}</span>
+                  ) : (
+                    col.label
+                  )}
                   <SortIcon column={col.key} />
                 </Button>
               </TableHead>
@@ -142,7 +148,7 @@ export function TransactionTable({
               return (
                 <TableRow
                   key={tx.id}
-                  className={onRowClick ? "cursor-pointer" : undefined}
+                  className={twMerge(onRowClick && "cursor-pointer")}
                   onClick={() => onRowClick?.(tx)}
                 >
                   <TableCell className="whitespace-nowrap">{formatDateShort(tx.date)}</TableCell>
@@ -177,7 +183,14 @@ export function TransactionTable({
                     )}
                   </TableCell>
                   <TableCell
-                    className={`text-right font-medium whitespace-nowrap ${tx.type === "income" ? "text-emerald-600" : "text-red-600"}`}
+                    className={twMerge(
+                      "text-right font-medium whitespace-nowrap",
+                      tx.categoryId === IGNORE_CATEGORY_ID
+                        ? "text-muted-foreground"
+                        : tx.type === "income"
+                          ? "text-emerald-600"
+                          : "text-red-600",
+                    )}
                   >
                     {tx.type === "income" ? "+" : "-"}
                     {formatCurrency(tx.amount)}
