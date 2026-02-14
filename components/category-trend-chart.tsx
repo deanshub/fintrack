@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -26,6 +27,8 @@ export function CategoryTrendChart({
   categories: Category[];
   selectedIds: string[];
 }) {
+  const [activeId, setActiveId] = useState<string | null>(null);
+
   if (selectedIds.length === 0) {
     return (
       <Card>
@@ -60,7 +63,7 @@ export function CategoryTrendChart({
     <Card>
       <CardContent className="pt-6">
         <ChartContainer config={chartConfig} className="h-[300px] w-full">
-          <LineChart data={formatted} accessibilityLayer>
+          <LineChart data={formatted} accessibilityLayer onMouseLeave={() => setActiveId(null)}>
             <CartesianGrid vertical={false} />
             <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
             <YAxis
@@ -68,7 +71,32 @@ export function CategoryTrendChart({
               axisLine={false}
               tickFormatter={(v) => `₪${v.toLocaleString()}`}
             />
-            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartTooltip
+              content={
+                <ChartTooltipContent
+                  formatter={(value, name) => {
+                    const cat = catMap.get(name as string);
+                    const isActive = activeId === name;
+                    return (
+                      <div
+                        className={`flex w-full items-center justify-between gap-4 ${isActive ? "font-semibold" : "text-muted-foreground"}`}
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <span
+                            className="size-2.5 shrink-0 rounded-full"
+                            style={{ backgroundColor: cat?.color }}
+                          />
+                          <span>{cat?.name ?? name}</span>
+                        </div>
+                        <span className="font-mono tabular-nums">
+                          ₪{Number(value).toLocaleString()}
+                        </span>
+                      </div>
+                    );
+                  }}
+                />
+              }
+            />
             <ChartLegend content={<ChartLegendContent className="flex-wrap gap-2" />} />
             {selectedIds.map((id) => (
               <Line
@@ -78,6 +106,7 @@ export function CategoryTrendChart({
                 stroke={`var(--color-${id})`}
                 strokeWidth={2}
                 dot={false}
+                onMouseEnter={() => setActiveId(id)}
               />
             ))}
           </LineChart>
