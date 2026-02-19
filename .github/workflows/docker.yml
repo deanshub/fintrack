@@ -18,6 +18,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate version
+        run: |
+          HASH=$(git rev-parse --short HEAD)
+          COUNT=$(git rev-list --count HEAD)
+          echo "export const APP_VERSION = \"0.${COUNT}.0+${HASH}\";" > lib/version.ts
 
       - name: Log in to Container Registry
         uses: docker/login-action@v3

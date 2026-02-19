@@ -6,6 +6,7 @@
     "dev": "bun scripts/generate-version.ts && next dev",
     "build": "bun scripts/generate-version.ts && next build",
     "start": "next start",
+    "docker": "bun scripts/generate-version.ts && docker build -t fintrack .",
     "lint": "biome check .",
     "format": "biome format . --write"
   },
