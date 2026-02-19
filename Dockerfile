@@ -13,7 +13,13 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN bun run build
 
-# Stage 3: Production
+# Stage 3: Install native deps for Alpine (serverExternalPackages need platform-matched binaries)
+FROM node:22-alpine AS native-deps
+WORKDIR /app
+COPY package.json ./
+RUN npm install --omit=dev pdf-parse pdfjs-dist @napi-rs/canvas
+
+# Stage 4: Production
 FROM node:22-alpine AS runner
 WORKDIR /app
 
@@ -26,6 +32,11 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=build /app/public ./public
 COPY --from=build --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=build --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# serverExternalPackages are not traced into standalone — copy from Alpine-built deps
+COPY --from=native-deps --chown=nextjs:nodejs /app/node_modules/pdf-parse ./node_modules/pdf-parse
+COPY --from=native-deps --chown=nextjs:nodejs /app/node_modules/pdfjs-dist ./node_modules/pdfjs-dist
+COPY --from=native-deps --chown=nextjs:nodejs /app/node_modules/@napi-rs ./node_modules/@napi-rs
 
 RUN mkdir -p /app/data && chown nextjs:nodejs /app/data
 VOLUME /app/data
