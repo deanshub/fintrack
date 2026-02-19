@@ -8,10 +8,11 @@ RUN bun install --frozen-lockfile
 FROM node:22-alpine AS build
 RUN npm install -g bun
 WORKDIR /app
+ARG APP_VERSION=0.0.0
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN bun run build
+RUN echo "export const APP_VERSION = \"${APP_VERSION}\";" > lib/version.ts && next build
 
 # Stage 3: Install native deps for Alpine (serverExternalPackages need platform-matched binaries)
 FROM node:22-alpine AS native-deps

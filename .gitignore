@@ -44,5 +44,8 @@ next-env.d.ts
 public/sw*
 public/swe-worker*
 
+# generated version
+lib/version.ts
+
 # transaction data
 data/
