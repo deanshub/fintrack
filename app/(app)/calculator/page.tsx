@@ -335,12 +335,14 @@ function CalculatorContent() {
   }
 
   function renderSection(title: string, type: "source" | "expense", list: FinanceItem[]) {
+    const color = type === "source" ? COLORS.green : COLORS.red;
     const icon =
       type === "source" ? (
-        <TrendingUp className="h-4 w-4" style={{ color: COLORS.green }} />
+        <TrendingUp className="h-4 w-4" style={{ color }} />
       ) : (
-        <TrendingDown className="h-4 w-4" style={{ color: COLORS.red }} />
+        <TrendingDown className="h-4 w-4" style={{ color }} />
       );
+    const total = list.reduce((sum, i) => sum + i.amount, 0);
     return (
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
@@ -381,17 +383,25 @@ function CalculatorContent() {
               </Button>
             </div>
           ) : (
-            <div className="space-y-1.5">
-              {list.map((item) => (
-                <ItemCard
-                  key={item.id}
-                  item={item}
-                  onEdit={() => setFormState({ open: true, type: item.type, editItem: item })}
-                  onDelete={() => setDeleteTarget(item)}
-                  onMarkAvailable={() => handleMarkAvailable(item)}
-                />
-              ))}
-            </div>
+            <>
+              <div className="space-y-1.5">
+                {list.map((item) => (
+                  <ItemCard
+                    key={item.id}
+                    item={item}
+                    onEdit={() => setFormState({ open: true, type: item.type, editItem: item })}
+                    onDelete={() => setDeleteTarget(item)}
+                    onMarkAvailable={() => handleMarkAvailable(item)}
+                  />
+                ))}
+              </div>
+              <div className="flex justify-between items-center border-t mt-3 pt-3 px-1">
+                <span className="text-sm text-muted-foreground">Total</span>
+                <span className="font-semibold tabular-nums" style={{ color }}>
+                  {formatCurrency(total)}
+                </span>
+              </div>
+            </>
           )}
         </CardContent>
       </Card>
