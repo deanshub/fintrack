@@ -412,26 +412,26 @@ function CalculatorContent() {
     <>
       {/* Summary row */}
       <Card>
-        <CardContent className="flex items-center justify-between gap-4 py-3">
-          <div className="flex items-center gap-2 min-w-0">
-            <TrendingUp className="h-4 w-4 shrink-0" style={{ color: COLORS.green }} />
-            <span className="text-sm text-muted-foreground shrink-0">Sources</span>
-            <span className="font-semibold tabular-nums" style={{ color: COLORS.green }}>
+        <CardContent className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-3">
+          <div className="flex items-center gap-1.5">
+            <TrendingUp className="h-3.5 w-3.5 shrink-0" style={{ color: COLORS.green }} />
+            <span className="text-xs text-muted-foreground">Sources</span>
+            <span className="font-semibold tabular-nums text-sm" style={{ color: COLORS.green }}>
               {formatCurrency(totalSources)}
             </span>
           </div>
-          <div className="flex items-center gap-2 min-w-0">
-            <TrendingDown className="h-4 w-4 shrink-0" style={{ color: COLORS.red }} />
-            <span className="text-sm text-muted-foreground shrink-0">Costs</span>
-            <span className="font-semibold tabular-nums" style={{ color: COLORS.red }}>
+          <div className="flex items-center gap-1.5">
+            <TrendingDown className="h-3.5 w-3.5 shrink-0" style={{ color: COLORS.red }} />
+            <span className="text-xs text-muted-foreground">Costs</span>
+            <span className="font-semibold tabular-nums text-sm" style={{ color: COLORS.red }}>
               {formatCurrency(totalExpenses)}
             </span>
           </div>
-          <div className="flex items-center gap-2 min-w-0">
-            <Wallet className="h-4 w-4 shrink-0 text-muted-foreground" />
-            <span className="text-sm text-muted-foreground shrink-0">Net</span>
+          <div className="flex items-center gap-1.5">
+            <Wallet className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">Net</span>
             <span
-              className="font-semibold tabular-nums"
+              className="font-semibold tabular-nums text-sm"
               style={{ color: net >= 0 ? COLORS.green : COLORS.red }}
             >
               {formatCurrency(net)}
