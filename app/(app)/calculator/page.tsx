@@ -202,43 +202,41 @@ function ItemCard({
       style={{ borderLeftWidth: 3, borderLeftColor: color }}
     >
       <div className="min-w-0 flex-1">
-        <div className="flex items-center gap-2">
-          <span className="font-medium truncate">{item.label}</span>
-          {parsedDate ? (
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Badge
-                  variant="secondary"
-                  className="shrink-0 gap-1 font-normal"
-                  style={{
-                    color,
-                    backgroundColor: arrived
-                      ? COLORS.greenBg
-                      : daysUntil <= 7
-                        ? COLORS.amberBg
-                        : COLORS.redBg,
-                  }}
-                >
-                  {arrived ? <Check className="h-3 w-3" /> : <Clock className="h-3 w-3" />}
-                  {arrived ? "Available" : `in ${formatDistanceToNow(parsedDate)}`}
-                </Badge>
-              </TooltipTrigger>
-              <TooltipContent>{formatDate(item.date!)}</TooltipContent>
-            </Tooltip>
-          ) : (
+        <p className="font-medium truncate">{item.label}</p>
+        <p className="text-sm text-muted-foreground mt-0.5">{formatCurrency(item.amount)}</p>
+      </div>
+      {parsedDate ? (
+        <Tooltip>
+          <TooltipTrigger asChild>
             <Badge
               variant="secondary"
               className="shrink-0 gap-1 font-normal"
-              style={{ color: COLORS.green, backgroundColor: COLORS.greenBg }}
+              style={{
+                color,
+                backgroundColor: arrived
+                  ? COLORS.greenBg
+                  : daysUntil <= 7
+                    ? COLORS.amberBg
+                    : COLORS.redBg,
+              }}
             >
-              <Check className="h-3 w-3" />
-              Available
+              {arrived ? <Check className="h-3 w-3" /> : <Clock className="h-3 w-3" />}
+              {arrived ? "Available" : `in ${formatDistanceToNow(parsedDate)}`}
             </Badge>
-          )}
-        </div>
-        <p className="text-sm text-muted-foreground mt-0.5">{formatCurrency(item.amount)}</p>
-      </div>
-      <div className="flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+          </TooltipTrigger>
+          <TooltipContent>{formatDate(item.date!)}</TooltipContent>
+        </Tooltip>
+      ) : (
+        <Badge
+          variant="secondary"
+          className="shrink-0 gap-1 font-normal"
+          style={{ color: COLORS.green, backgroundColor: COLORS.greenBg }}
+        >
+          <Check className="h-3 w-3" />
+          Available
+        </Badge>
+      )}
+      <div className="flex gap-0.5">
         {!arrived && (
           <Tooltip>
             <TooltipTrigger asChild>
