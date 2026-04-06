@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeftRight, LayoutDashboard, Settings, Tag, Target } from "lucide-react";
+import { ArrowLeftRight, Calculator, LayoutDashboard, Settings, Tag, Target } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
@@ -23,6 +23,7 @@ const NAV_ITEMS = [
   { icon: ArrowLeftRight, label: "Transactions", href: "/transactions" },
   { icon: Tag, label: "Categories", href: "/categories" },
   { icon: Target, label: "Budgets", href: "/budgets" },
+  { icon: Calculator, label: "Calculator", href: "/calculator" },
   { icon: Settings, label: "Admin", href: "/admin" },
 ];
 

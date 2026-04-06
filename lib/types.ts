@@ -31,3 +31,11 @@ export interface Budget {
   globalLimit: number | null;
   categoryLimits: Record<string, number>;
 }
+
+export interface FinanceItem {
+  id: string;
+  label: string;
+  amount: number;
+  type: "source" | "expense";
+  date?: string; // yyyy-MM-dd — omitted means already available
+}
