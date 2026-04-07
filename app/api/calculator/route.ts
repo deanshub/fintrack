@@ -27,9 +27,23 @@ export async function POST(req: Request) {
 }
 
 export async function PUT(req: Request) {
-  const body: FinanceItem = await req.json();
-  const items = await readJsonFile<FinanceItem[]>(FILE);
+  const body = await req.json();
 
+  // Bulk replace (import)
+  if (Array.isArray(body)) {
+    const imported = (body as FinanceItem[]).map((item) => ({
+      id: item.id || crypto.randomUUID(),
+      label: item.label,
+      amount: item.amount,
+      type: item.type,
+      ...(item.date ? { date: item.date } : {}),
+    }));
+    await writeJsonFile(FILE, imported);
+    return NextResponse.json(imported);
+  }
+
+  // Single item update
+  const items = await readJsonFile<FinanceItem[]>(FILE);
   const idx = items.findIndex((i) => i.id === body.id);
   if (idx === -1) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });

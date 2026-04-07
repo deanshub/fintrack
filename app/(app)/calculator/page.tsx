@@ -14,14 +14,16 @@ import {
   Check,
   CircleCheck,
   Clock,
+  Download,
   Pencil,
   Plus,
   Trash2,
   TrendingDown,
   TrendingUp,
+  Upload,
   Wallet,
 } from "lucide-react";
-import { Suspense, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import useSWR, { useSWRConfig } from "swr";
 import {
   AlertDialog,
@@ -301,6 +303,8 @@ function CalculatorContent() {
   const { mutate } = useSWRConfig();
   const [formState, setFormState] = useState<ItemFormState | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<FinanceItem | null>(null);
+  const [importData, setImportData] = useState<FinanceItem[] | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   if (!items) return null;
 
@@ -330,6 +334,38 @@ function CalculatorContent() {
     });
     await mutate(API);
     setDeleteTarget(null);
+  }
+
+  function handleExport() {
+    const blob = new Blob([JSON.stringify(items, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `calculator-${format(new Date(), "yyyy-MM-dd")}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  async function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      const text = await file.text();
+      setImportData(JSON.parse(text) as FinanceItem[]);
+    } finally {
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
+  }
+
+  async function confirmImport() {
+    if (!importData) return;
+    await fetch(API, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(importData),
+    });
+    await mutate(API);
+    setImportData(null);
   }
 
   function renderSection(title: string, type: "source" | "expense", list: FinanceItem[]) {
@@ -418,6 +454,25 @@ function CalculatorContent() {
 
   return (
     <>
+      {/* Actions */}
+      <div className="flex gap-2 justify-end -mt-2">
+        <Button variant="outline" size="sm" onClick={handleExport}>
+          <Download className="h-3.5 w-3.5 mr-1" />
+          Export
+        </Button>
+        <Button variant="outline" size="sm" onClick={() => fileInputRef.current?.click()}>
+          <Upload className="h-3.5 w-3.5 mr-1" />
+          Import
+        </Button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".json"
+          className="hidden"
+          onChange={handleFileSelect}
+        />
+      </div>
+
       {/* Summary row */}
       <Card>
         <CardContent className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-3">
@@ -561,6 +616,22 @@ function CalculatorContent() {
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={!!importData} onOpenChange={(open) => !open && setImportData(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Import data</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will replace all existing items with {importData?.length ?? 0} imported item
+              {importData?.length !== 1 ? "s" : ""}. This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmImport}>Replace all</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
