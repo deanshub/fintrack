@@ -8,6 +8,7 @@ import {
   parse,
   startOfDay,
 } from "date-fns";
+import { toPng } from "html-to-image";
 import {
   ArrowDown,
   ArrowUp,
@@ -15,6 +16,8 @@ import {
   CircleCheck,
   Clock,
   Download,
+  FileJson,
+  Image,
   Pencil,
   Plus,
   Trash2,
@@ -305,6 +308,7 @@ function CalculatorContent() {
   const [deleteTarget, setDeleteTarget] = useState<FinanceItem | null>(null);
   const [importData, setImportData] = useState<FinanceItem[] | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
 
   if (!items) return null;
 
@@ -366,6 +370,59 @@ function CalculatorContent() {
     });
     await mutate(API);
     setImportData(null);
+  }
+
+  function exportTimelineJson() {
+    if (!items) return;
+    const allSorted = [...items].sort(sortByDate);
+    const available = allSorted.filter((i) => !i.date);
+    const future = allSorted.filter((i) => i.date);
+
+    let balance = available.reduce((s, i) => s + (i.type === "source" ? i.amount : -i.amount), 0);
+    const timeline: {
+      label: string;
+      type: string;
+      amount: number;
+      date: string | null;
+      balance: number;
+    }[] = [];
+
+    if (available.length > 0) {
+      timeline.push({
+        label: "Available now",
+        type: "group",
+        amount: balance,
+        date: null,
+        balance,
+      });
+    }
+    for (const item of future) {
+      balance += item.type === "source" ? item.amount : -item.amount;
+      timeline.push({
+        label: item.label,
+        type: item.type,
+        amount: item.amount,
+        date: item.date!,
+        balance,
+      });
+    }
+
+    const blob = new Blob([JSON.stringify(timeline, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `timeline-${format(new Date(), "yyyy-MM-dd")}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  async function exportTimelinePng() {
+    if (!timelineRef.current) return;
+    const dataUrl = await toPng(timelineRef.current, { backgroundColor: "#ffffff", pixelRatio: 2 });
+    const a = document.createElement("a");
+    a.href = dataUrl;
+    a.download = `timeline-${format(new Date(), "yyyy-MM-dd")}.png`;
+    a.click();
   }
 
   function renderSection(title: string, type: "source" | "expense", list: FinanceItem[]) {
@@ -512,16 +569,46 @@ function CalculatorContent() {
       {/* Timeline */}
       {hasTimeline && (
         <Card>
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-muted-foreground" />
-              <CardTitle className="text-base">Payment Timeline</CardTitle>
+          <CardHeader className="flex flex-row items-start justify-between space-y-0">
+            <div>
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4 text-muted-foreground" />
+                <CardTitle className="text-base">Payment Timeline</CardTitle>
+              </div>
+              <p className="text-sm text-muted-foreground mt-1">
+                Running balance as items become available
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Running balance as items become available
-            </p>
+            <div className="flex gap-1">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={exportTimelineJson}
+                  >
+                    <FileJson className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Export as JSON</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={exportTimelinePng}
+                  >
+                    <Image className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Export as PNG</TooltipContent>
+              </Tooltip>
+            </div>
           </CardHeader>
-          <CardContent>
+          <CardContent ref={timelineRef}>
             {availableNow.length > 0 && (
               <TimelineRow
                 dotColor={COLORS.green}
